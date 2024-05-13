@@ -1,8 +1,0 @@
-introductie
-cv
-education
-important-courses
-projects
-minor-data-science-for-biology
-important-skills
-maldiquant
