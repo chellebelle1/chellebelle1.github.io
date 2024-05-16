@@ -6,4 +6,7 @@ projects
 minor-data-science-for-biology
 important-skills
 maldiquant
+open-peer-review
+article
+summary
 review
