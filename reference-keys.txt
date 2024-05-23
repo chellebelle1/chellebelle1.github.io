@@ -6,7 +6,17 @@ projects
 minor-data-science-for-biology
 important-skills
 maldiquant
+intro
+start
 open-peer-review
 article
 summary
 review
+datetime-r-package
+introduction
+installation
+fuctions-of-the-package
+calculating-date-difference
+add-time-to-a-date
+check-if-two-dates-are-on-the-same-day
+check-for-dutch-holidays
