@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 DateTime R Package | _main.knit</title>
+  <title>6 DateTime R Package | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 DateTime R Package | _main.knit" />
+  <meta property="og:title" content="6 DateTime R Package | _main.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 DateTime R Package | _main.knit" />
+  <meta name="twitter:title" content="6 DateTime R Package | _main.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="open-peer-review.html"/>
-
+<link rel="prev" href="sql.html"/>
+<link rel="next" href="projecticum-ner.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introductie</a></li>
+<li class="chapter" data-level="1" data-path="introductie.html"><a href="introductie.html"><i class="fa fa-check"></i><b>1</b> Introductie</a></li>
 <li class="chapter" data-level="2" data-path="cv.html"><a href="cv.html"><i class="fa fa-check"></i><b>2</b> CV</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="cv.html"><a href="cv.html#education"><i class="fa fa-check"></i><b>2.1</b> Education</a></li>
@@ -154,18 +154,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="open-peer-review.html"><a href="open-peer-review.html#summary"><i class="fa fa-check"></i><b>4.2</b> Summary</a></li>
 <li class="chapter" data-level="4.3" data-path="open-peer-review.html"><a href="open-peer-review.html#review"><i class="fa fa-check"></i><b>4.3</b> Review</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="datetime-r-package.html"><a href="datetime-r-package.html"><i class="fa fa-check"></i><b>5</b> DateTime R Package</a>
+<li class="chapter" data-level="5" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>5</b> SQL</a></li>
+<li class="chapter" data-level="6" data-path="datetime-r-package.html"><a href="datetime-r-package.html"><i class="fa fa-check"></i><b>6</b> DateTime R Package</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="datetime-r-package.html"><a href="datetime-r-package.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="datetime-r-package.html"><a href="datetime-r-package.html#installation"><i class="fa fa-check"></i><b>5.2</b> Installation</a></li>
-<li class="chapter" data-level="5.3" data-path="datetime-r-package.html"><a href="datetime-r-package.html#fuctions-of-the-package"><i class="fa fa-check"></i><b>5.3</b> Fuctions of the package</a>
+<li class="chapter" data-level="6.1" data-path="datetime-r-package.html"><a href="datetime-r-package.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="datetime-r-package.html"><a href="datetime-r-package.html#installation"><i class="fa fa-check"></i><b>6.2</b> Installation</a></li>
+<li class="chapter" data-level="6.3" data-path="datetime-r-package.html"><a href="datetime-r-package.html#fuctions-of-the-package"><i class="fa fa-check"></i><b>6.3</b> Fuctions of the package</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="datetime-r-package.html"><a href="datetime-r-package.html#calculating-date-difference"><i class="fa fa-check"></i><b>5.3.1</b> Calculating date difference</a></li>
-<li class="chapter" data-level="5.3.2" data-path="datetime-r-package.html"><a href="datetime-r-package.html#add-time-to-a-date"><i class="fa fa-check"></i><b>5.3.2</b> Add time to a date</a></li>
-<li class="chapter" data-level="5.3.3" data-path="datetime-r-package.html"><a href="datetime-r-package.html#check-if-two-dates-are-on-the-same-day"><i class="fa fa-check"></i><b>5.3.3</b> Check if two dates are on the same day</a></li>
-<li class="chapter" data-level="5.3.4" data-path="datetime-r-package.html"><a href="datetime-r-package.html#check-for-dutch-holidays"><i class="fa fa-check"></i><b>5.3.4</b> Check for Dutch holidays</a></li>
+<li class="chapter" data-level="6.3.1" data-path="datetime-r-package.html"><a href="datetime-r-package.html#calculating-date-difference"><i class="fa fa-check"></i><b>6.3.1</b> Calculating date difference</a></li>
+<li class="chapter" data-level="6.3.2" data-path="datetime-r-package.html"><a href="datetime-r-package.html#add-time-to-a-date"><i class="fa fa-check"></i><b>6.3.2</b> Add time to a date</a></li>
+<li class="chapter" data-level="6.3.3" data-path="datetime-r-package.html"><a href="datetime-r-package.html#check-if-two-dates-are-on-the-same-day"><i class="fa fa-check"></i><b>6.3.3</b> Check if two dates are on the same day</a></li>
+<li class="chapter" data-level="6.3.4" data-path="datetime-r-package.html"><a href="datetime-r-package.html#check-for-dutch-holidays"><i class="fa fa-check"></i><b>6.3.4</b> Check for Dutch holidays</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="projecticum-ner.html"><a href="projecticum-ner.html"><i class="fa fa-check"></i><b>7</b> Projecticum NER</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="projecticum-ner.html"><a href="projecticum-ner.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="projecticum-ner.html"><a href="projecticum-ner.html#physiologically-based-pharmacokinetic-models"><i class="fa fa-check"></i><b>7.2</b> Physiologically Based Pharmacokinetic models</a></li>
+<li class="chapter" data-level="7.3" data-path="projecticum-ner.html"><a href="projecticum-ner.html#prodigy"><i class="fa fa-check"></i><b>7.3</b> Prodigy</a></li>
+<li class="chapter" data-level="7.4" data-path="projecticum-ner.html"><a href="projecticum-ner.html#named-entity-recognition-models"><i class="fa fa-check"></i><b>7.4</b> Named Entity Recognition models</a></li>
+<li class="chapter" data-level="7.5" data-path="projecticum-ner.html"><a href="projecticum-ner.html#references"><i class="fa fa-check"></i><b>7.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html"><i class="fa fa-check"></i><b>8</b> Parameterized COVID-19 report</a></li>
 </ul>
 
       </nav>
@@ -183,24 +193,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datetime-r-package" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> DateTime R Package<a href="datetime-r-package.html#datetime-r-package" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Introduction<a href="datetime-r-package.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="datetime-r-package" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> DateTime R Package<a href="datetime-r-package.html#datetime-r-package" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Introduction<a href="datetime-r-package.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This is a user guide for the <code>DateTime</code> package, which allows you to perform operations or calculations with date and time. See this guide for explanations and examples of the functions in this package.</p>
 </div>
-<div id="installation" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Installation<a href="datetime-r-package.html#installation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="installation" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Installation<a href="datetime-r-package.html#installation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To use the <code>DateTime</code> package, use the code below in your console.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="datetime-r-package.html#cb25-1" tabindex="-1"></a><span class="co"># install packages &quot;usethis&quot; and &quot;devtools&quot; if they are not already installed </span></span>
-<span id="cb25-2"><a href="datetime-r-package.html#cb25-2" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
-<span id="cb25-3"><a href="datetime-r-package.html#cb25-3" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb25-4"><a href="datetime-r-package.html#cb25-4" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="datetime-r-package.html#cb25-5" tabindex="-1"></a><span class="co"># Load the DateTime package in </span></span>
-<span id="cb25-6"><a href="datetime-r-package.html#cb25-6" tabindex="-1"></a><span class="fu">library</span>(DateTime)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="datetime-r-package.html#cb31-1" tabindex="-1"></a><span class="co"># install packages &quot;usethis&quot; and &quot;devtools&quot; if they are not already installed </span></span>
+<span id="cb31-2"><a href="datetime-r-package.html#cb31-2" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb31-3"><a href="datetime-r-package.html#cb31-3" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb31-4"><a href="datetime-r-package.html#cb31-4" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="datetime-r-package.html#cb31-5" tabindex="-1"></a><span class="co"># Load the DateTime package in </span></span>
+<span id="cb31-6"><a href="datetime-r-package.html#cb31-6" tabindex="-1"></a><span class="fu">library</span>(DateTime)</span></code></pre></div>
 </div>
-<div id="fuctions-of-the-package" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Fuctions of the package<a href="datetime-r-package.html#fuctions-of-the-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="fuctions-of-the-package" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Fuctions of the package<a href="datetime-r-package.html#fuctions-of-the-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The package contains 4 functions which are related to date and time.</p>
 <ul>
 <li><p><code>date_difference()</code></p></li>
@@ -208,47 +218,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>is_same_day()</code></p></li>
 <li><p><code>is_dutch_holiday()</code></p></li>
 </ul>
-<div id="calculating-date-difference" class="section level3 hasAnchor" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Calculating date difference<a href="datetime-r-package.html#calculating-date-difference" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="calculating-date-difference" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Calculating date difference<a href="datetime-r-package.html#calculating-date-difference" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>date_difference()</code> function allows you to calculate the difference between two dates. The function uses various time units such as seconds, minutes, hours, days, weeks, months, and years.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="datetime-r-package.html#cb26-1" tabindex="-1"></a><span class="co"># Load the DateTime package</span></span>
-<span id="cb26-2"><a href="datetime-r-package.html#cb26-2" tabindex="-1"></a><span class="fu">library</span>(DateTime)</span>
-<span id="cb26-3"><a href="datetime-r-package.html#cb26-3" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="datetime-r-package.html#cb26-4" tabindex="-1"></a><span class="co"># Calculate the difference between two dates in days</span></span>
-<span id="cb26-5"><a href="datetime-r-package.html#cb26-5" tabindex="-1"></a><span class="fu">date_difference</span>(<span class="st">&quot;2024-05-21&quot;</span>, <span class="st">&quot;2024-05-22&quot;</span>, <span class="at">units =</span> <span class="st">&quot;days&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="datetime-r-package.html#cb32-1" tabindex="-1"></a><span class="co"># Load the DateTime package</span></span>
+<span id="cb32-2"><a href="datetime-r-package.html#cb32-2" tabindex="-1"></a><span class="fu">library</span>(DateTime)</span>
+<span id="cb32-3"><a href="datetime-r-package.html#cb32-3" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="datetime-r-package.html#cb32-4" tabindex="-1"></a><span class="co"># Calculate the difference between two dates in days</span></span>
+<span id="cb32-5"><a href="datetime-r-package.html#cb32-5" tabindex="-1"></a><span class="fu">date_difference</span>(<span class="st">&quot;2024-05-21&quot;</span>, <span class="st">&quot;2024-05-22&quot;</span>, <span class="at">units =</span> <span class="st">&quot;days&quot;</span>)</span></code></pre></div>
 <pre><code>## Time difference of 1 days</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="datetime-r-package.html#cb28-1" tabindex="-1"></a><span class="co"># Calculate the difference between two dates in weeks</span></span>
-<span id="cb28-2"><a href="datetime-r-package.html#cb28-2" tabindex="-1"></a><span class="fu">date_difference</span>(<span class="st">&quot;2024-05-21&quot;</span>, <span class="st">&quot;2024-06-21&quot;</span>, <span class="at">units =</span> <span class="st">&quot;weeks&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="datetime-r-package.html#cb34-1" tabindex="-1"></a><span class="co"># Calculate the difference between two dates in weeks</span></span>
+<span id="cb34-2"><a href="datetime-r-package.html#cb34-2" tabindex="-1"></a><span class="fu">date_difference</span>(<span class="st">&quot;2024-05-21&quot;</span>, <span class="st">&quot;2024-06-21&quot;</span>, <span class="at">units =</span> <span class="st">&quot;weeks&quot;</span>)</span></code></pre></div>
 <pre><code>## Time difference of 4.428571 weeks</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="datetime-r-package.html#cb30-1" tabindex="-1"></a><span class="co"># Calculate the difference between two dates in years</span></span>
-<span id="cb30-2"><a href="datetime-r-package.html#cb30-2" tabindex="-1"></a><span class="fu">date_difference</span>(<span class="st">&quot;2024-05-21&quot;</span>, <span class="st">&quot;2025-05-22&quot;</span>, <span class="at">units =</span> <span class="st">&quot;years&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="datetime-r-package.html#cb36-1" tabindex="-1"></a><span class="co"># Calculate the difference between two dates in years</span></span>
+<span id="cb36-2"><a href="datetime-r-package.html#cb36-2" tabindex="-1"></a><span class="fu">date_difference</span>(<span class="st">&quot;2024-05-21&quot;</span>, <span class="st">&quot;2025-05-22&quot;</span>, <span class="at">units =</span> <span class="st">&quot;years&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Time difference of 1.00205338809035 years&quot;</code></pre>
 </div>
-<div id="add-time-to-a-date" class="section level3 hasAnchor" number="5.3.2">
-<h3><span class="header-section-number">5.3.2</span> Add time to a date<a href="datetime-r-package.html#add-time-to-a-date" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="add-time-to-a-date" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Add time to a date<a href="datetime-r-package.html#add-time-to-a-date" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>add_time()</code> function adds a certain amount of time to the filled in date.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="datetime-r-package.html#cb32-1" tabindex="-1"></a><span class="co"># Add 1 hour</span></span>
-<span id="cb32-2"><a href="datetime-r-package.html#cb32-2" tabindex="-1"></a><span class="fu">add_time</span>(<span class="st">&quot;2024-05-21 08:00:00&quot;</span>, <span class="dv">1</span>, <span class="st">&quot;hours&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="datetime-r-package.html#cb38-1" tabindex="-1"></a><span class="co"># Add 1 hour</span></span>
+<span id="cb38-2"><a href="datetime-r-package.html#cb38-2" tabindex="-1"></a><span class="fu">add_time</span>(<span class="st">&quot;2024-05-21 08:00:00&quot;</span>, <span class="dv">1</span>, <span class="st">&quot;hours&quot;</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;2024-05-21 09:00:00 CEST&quot;</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="datetime-r-package.html#cb34-1" tabindex="-1"></a><span class="co"># Add 2 weeks </span></span>
-<span id="cb34-2"><a href="datetime-r-package.html#cb34-2" tabindex="-1"></a><span class="fu">add_time</span>(<span class="st">&quot;2024-07-22 07:00:00&quot;</span>, <span class="dv">2</span>, <span class="st">&quot;weeks&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="datetime-r-package.html#cb40-1" tabindex="-1"></a><span class="co"># Add 2 weeks </span></span>
+<span id="cb40-2"><a href="datetime-r-package.html#cb40-2" tabindex="-1"></a><span class="fu">add_time</span>(<span class="st">&quot;2024-07-22 07:00:00&quot;</span>, <span class="dv">2</span>, <span class="st">&quot;weeks&quot;</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;2024-08-05 07:00:00 CEST&quot;</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="datetime-r-package.html#cb36-1" tabindex="-1"></a><span class="co"># Add 54 seconds</span></span>
-<span id="cb36-2"><a href="datetime-r-package.html#cb36-2" tabindex="-1"></a><span class="fu">add_time</span>(<span class="st">&quot;2024-05-21 08:00:00&quot;</span>, <span class="dv">54</span>, <span class="st">&quot;seconds&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="datetime-r-package.html#cb42-1" tabindex="-1"></a><span class="co"># Add 54 seconds</span></span>
+<span id="cb42-2"><a href="datetime-r-package.html#cb42-2" tabindex="-1"></a><span class="fu">add_time</span>(<span class="st">&quot;2024-05-21 08:00:00&quot;</span>, <span class="dv">54</span>, <span class="st">&quot;seconds&quot;</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;2024-05-21 08:00:54 CEST&quot;</code></pre>
 </div>
-<div id="check-if-two-dates-are-on-the-same-day" class="section level3 hasAnchor" number="5.3.3">
-<h3><span class="header-section-number">5.3.3</span> Check if two dates are on the same day<a href="datetime-r-package.html#check-if-two-dates-are-on-the-same-day" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="check-if-two-dates-are-on-the-same-day" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Check if two dates are on the same day<a href="datetime-r-package.html#check-if-two-dates-are-on-the-same-day" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>is_same_day()</code> function checks whether two dates fall on the same weekday. If so, it returns “TRUE” and gives the name of the weekday. If not, it returns “FALSE” and gives you the two different weekday names.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="datetime-r-package.html#cb38-1" tabindex="-1"></a><span class="co"># Check if the 21st of May 2024 falls on the same day as 21st of May 2024. </span></span>
-<span id="cb38-2"><a href="datetime-r-package.html#cb38-2" tabindex="-1"></a><span class="fu">is_same_day</span>(<span class="st">&quot;2024-05-21&quot;</span>, <span class="st">&quot;2024-05-21&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="datetime-r-package.html#cb44-1" tabindex="-1"></a><span class="co"># Check if the 21st of May 2024 falls on the same day as 21st of May 2024. </span></span>
+<span id="cb44-2"><a href="datetime-r-package.html#cb44-2" tabindex="-1"></a><span class="fu">is_same_day</span>(<span class="st">&quot;2024-05-21&quot;</span>, <span class="st">&quot;2024-05-21&quot;</span>)</span></code></pre></div>
 <pre><code>## $same_day
 ## [1] TRUE
 ## 
 ## $day_of_week
 ## [1] &quot;dinsdag&quot;</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="datetime-r-package.html#cb40-1" tabindex="-1"></a><span class="co"># Check if the 4th of May 2024 falls on the same day as the 2nd of February 2024</span></span>
-<span id="cb40-2"><a href="datetime-r-package.html#cb40-2" tabindex="-1"></a><span class="fu">is_same_day</span>(<span class="st">&quot;2024-05-04&quot;</span>, <span class="st">&quot;2024-02-02&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="datetime-r-package.html#cb46-1" tabindex="-1"></a><span class="co"># Check if the 4th of May 2024 falls on the same day as the 2nd of February 2024</span></span>
+<span id="cb46-2"><a href="datetime-r-package.html#cb46-2" tabindex="-1"></a><span class="fu">is_same_day</span>(<span class="st">&quot;2024-05-04&quot;</span>, <span class="st">&quot;2024-02-02&quot;</span>)</span></code></pre></div>
 <pre><code>## $same_day
 ## [1] FALSE
 ## 
@@ -258,8 +268,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $day_of_week_2
 ## [1] &quot;vrijdag&quot;</code></pre>
 </div>
-<div id="check-for-dutch-holidays" class="section level3 hasAnchor" number="5.3.4">
-<h3><span class="header-section-number">5.3.4</span> Check for Dutch holidays<a href="datetime-r-package.html#check-for-dutch-holidays" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="check-for-dutch-holidays" class="section level3 hasAnchor" number="6.3.4">
+<h3><span class="header-section-number">6.3.4</span> Check for Dutch holidays<a href="datetime-r-package.html#check-for-dutch-holidays" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>is_dutch_holiday()</code> function checks if the given date, is also a (legal) Dutch holiday.
 These holidays are:</p>
 <ul>
@@ -275,9 +285,9 @@ These holidays are:</p>
 <li><p>Christmas Day</p></li>
 <li><p>Second Christmas Day</p></li>
 </ul>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="datetime-r-package.html#cb42-1" tabindex="-1"></a><span class="fu">is_dutch_holiday</span>(<span class="st">&quot;2024-01-01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="datetime-r-package.html#cb48-1" tabindex="-1"></a><span class="fu">is_dutch_holiday</span>(<span class="st">&quot;2024-01-01&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="datetime-r-package.html#cb44-1" tabindex="-1"></a><span class="fu">is_dutch_holiday</span>(<span class="st">&quot;2024-08-12&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="datetime-r-package.html#cb50-1" tabindex="-1"></a><span class="fu">is_dutch_holiday</span>(<span class="st">&quot;2024-08-12&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 
 </div>
@@ -288,8 +298,8 @@ These holidays are:</p>
           </div>
         </div>
       </div>
-<a href="open-peer-review.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="sql.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="projecticum-ner.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

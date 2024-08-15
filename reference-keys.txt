@@ -12,6 +12,7 @@ open-peer-review
 article
 summary
 review
+sql
 datetime-r-package
 introduction
 installation
@@ -20,3 +21,10 @@ calculating-date-difference
 add-time-to-a-date
 check-if-two-dates-are-on-the-same-day
 check-for-dutch-holidays
+projecticum-ner
+introduction-1
+physiologically-based-pharmacokinetic-models
+prodigy
+named-entity-recognition-models
+references
+parameterized-covid-19-report
