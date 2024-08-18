@@ -50,6 +50,14 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/core-js-2.5.3/shim.min.js"></script>
+<script src="libs/react-18.2.0/react.min.js"></script>
+<script src="libs/react-18.2.0/react-dom.min.js"></script>
+<script src="libs/reactwidget-2.0.0/react-tools.umd.cjs"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/reactable-0.4.4/reactable.css" rel="stylesheet" />
+<script src="libs/reactable-binding-0.4.4/reactable.js"></script>
 
 
 <style type="text/css">
@@ -145,8 +153,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="maldiquant.html"><a href="maldiquant.html"><i class="fa fa-check"></i><b>3</b> MALDIquant</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="maldiquant.html"><a href="maldiquant.html#intro"><i class="fa fa-check"></i><b>3.1</b> Intro</a></li>
-<li class="chapter" data-level="3.2" data-path="maldiquant.html"><a href="maldiquant.html#start"><i class="fa fa-check"></i><b>3.2</b> start</a></li>
+<li class="chapter" data-level="3.1" data-path="maldiquant.html"><a href="maldiquant.html#intro"><i class="fa fa-check"></i><b>3.1</b> Intro</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="maldiquant.html"><a href="maldiquant.html#schedule"><i class="fa fa-check"></i><b>3.1.1</b> Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="maldiquant.html"><a href="maldiquant.html#manual"><i class="fa fa-check"></i><b>3.2</b> Manual</a></li>
+<li class="chapter" data-level="3.3" data-path="maldiquant.html"><a href="maldiquant.html#references"><i class="fa fa-check"></i><b>3.3</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="open-peer-review.html"><a href="open-peer-review.html"><i class="fa fa-check"></i><b>4</b> Open Peer Review</a>
 <ul>
@@ -173,9 +185,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="projecticum-ner.html"><a href="projecticum-ner.html#physiologically-based-pharmacokinetic-models"><i class="fa fa-check"></i><b>7.2</b> Physiologically Based Pharmacokinetic models</a></li>
 <li class="chapter" data-level="7.3" data-path="projecticum-ner.html"><a href="projecticum-ner.html#prodigy"><i class="fa fa-check"></i><b>7.3</b> Prodigy</a></li>
 <li class="chapter" data-level="7.4" data-path="projecticum-ner.html"><a href="projecticum-ner.html#named-entity-recognition-models"><i class="fa fa-check"></i><b>7.4</b> Named Entity Recognition models</a></li>
-<li class="chapter" data-level="7.5" data-path="projecticum-ner.html"><a href="projecticum-ner.html#references"><i class="fa fa-check"></i><b>7.5</b> References</a></li>
+<li class="chapter" data-level="7.5" data-path="projecticum-ner.html"><a href="projecticum-ner.html#references-1"><i class="fa fa-check"></i><b>7.5</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html"><i class="fa fa-check"></i><b>8</b> Parameterized COVID-19 report</a></li>
+<li class="chapter" data-level="8" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html"><i class="fa fa-check"></i><b>8</b> Parameterized COVID-19 report</a>
+<ul>
+<li class="chapter" data-level="" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html#importeren-en-inspecteren"><i class="fa fa-check"></i>Importeren en inspecteren</a></li>
+<li class="chapter" data-level="" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html#lijngrafiek-nederland-frankrijk-en-spanje"><i class="fa fa-check"></i>Lijngrafiek Nederland, Frankrijk en Spanje</a></li>
+<li class="chapter" data-level="" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html#lijngrafiek-roemenië-noorwegen-en-italië"><i class="fa fa-check"></i>Lijngrafiek Roemenië, Noorwegen en Italië</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -197,32 +214,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">3</span> MALDIquant<a href="maldiquant.html#maldiquant" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="intro" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Intro<a href="maldiquant.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Door mijn intresse in bacteriën en virussen heb ik in mijn derde jaar gekozen voor de specialisatie microbiologie. Hierbij moest ik voor een project werken met de bacterie <em>Porphyromonas gingivalis</em>. De bacterie werd hierbij blootgesteld aan verschillende concentraties magnesium en ijzer. Om het effect hiervan te meten op het aantal uitgescheiden outer membrane vesicles (OMV’s), werd er gebruik gemaakt van een fluorescentie microscoop en MALDI-TOF MS.</p>
-<p>Voor MALDI-TOF MS data bestaat er een package genaamd MALDIquant, met een complete pipeline voor analyse. Omdat ik de MALDI-TOF MS een interessante techniek vind in de microbiologie, lijkt het me leuk om uit te zoeken hoe deze package werkt.
-Door op internet informatie te vinden over de package zou ik deze willen toepassen op mijn vorige project om de resultaten die ik toen had en nu heb te vergelijken. Hiermee zou ik in 4 dagen mee kunnen beginnen.</p>
-<p>De eerste twee dagen zal ik vooral oefenen met het gebruik van de package. Op internet zijn er verschillende manuals te vinden en die zou ik kunnen doorlopen met fake-data. Vervolgens kan ik proberen of ik de package kan laten runnen op mijn eigen data.</p>
+<p>Due to my interest in bacteria and viruses, I chose the specialization in microbiology in my third year. For a project, I worked with the bacterium Porphyromonas gingivalis, exposing it to different concentrations of magnesium and iron. To measure the effect of these elements on the number of secreted outer membrane vesicles (OMVs), a fluorescence microscope and MALDI-TOF MS were used.</p>
+<p>For MALDI-TOF MS data, there is a package called MALDIquant, which provides a complete pipeline for analysis. Since I find MALDI-TOF MS to be an interesting technique in microbiology, I would like to explore how this package works. By finding information about the package online, I plan to apply it to my previous project to compare the results I had then with the ones I have now. I could start working on this in four days.</p>
+<div id="schedule" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Schedule<a href="maldiquant.html#schedule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the first two days, I will mainly practice using the package. There are various manuals available online that I can go through with fake data. Afterward, I can try running the package on my own data.</p>
+<ul>
+<li><p>Day one: explore MALDIquant (&amp; some MALDITOF-MS theory)</p></li>
+<li><p>Day two &amp; three: try some codes, manuals of MALDIquant</p></li>
+<li><p>Day four: Try the code on own data</p></li>
+</ul>
 </div>
-<div id="start" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> start<a href="maldiquant.html#start" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="maldiquant.html#cb1-1" tabindex="-1"></a><span class="co"># Installeer de juiste packages </span></span>
+</div>
+<div id="manual" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Manual<a href="maldiquant.html#manual" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The script shown below, uses the MALDIquant package to process and analyze MALDI-TOF MS data. It begins by installing and loading the necessary packages. A mass spectrum object is created to represent the data, followed by importing example data, specifically a subset of MALDI-TOF data from a study by Fiedler et al. (2009).</p>
+<p>Quality control checks are performed to ensure that all spectra have a consistent number of non-empty data points and that the data points are regular. The script then visualizes the spectra by plotting them, which provides an initial look at the data.</p>
+<p>Next, the script applies variance stabilization to the spectra, which is crucial for making the data more consistent. Smoothing is applied to reduce noise, followed by baseline correction to remove any background noise that might affect the analysis. After baseline correction, the spectra are normalized to ensure they are on a comparable scale.</p>
+<p>Spectra alignment is then performed, which involves adjusting the spectra so that peaks align correctly across samples. This step is essential for accurate comparison. The script identifies the samples within the spectra and averages them to create a single spectrum per sample.</p>
+<p>Peak detection is carried out on the averaged spectra, and noise estimation is included to identify and highlight significant peaks. These peaks are then binned, which groups similar peaks together based on a specified tolerance. Finally, the script creates a feature matrix, which contains the intensity values of these peaks, ready for further analysis <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="maldiquant.html#cb1-1" tabindex="-1"></a><span class="co"># Install the necessary packages</span></span>
 <span id="cb1-2"><a href="maldiquant.html#cb1-2" tabindex="-1"></a><span class="co"># install.packages(c(&quot;MALDIquant&quot;, &quot;MALDIquantForeign&quot;))</span></span>
 <span id="cb1-3"><a href="maldiquant.html#cb1-3" tabindex="-1"></a><span class="fu">library</span>(MALDIquant)</span></code></pre></div>
 <pre><code>## 
 ## This is MALDIquant version 1.22.2
 ## Quantitative Analysis of Mass Spectrometry Data
 ##  See &#39;?MALDIquant&#39; for more information about this package.</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="maldiquant.html#cb3-1" tabindex="-1"></a><span class="co"># MALDIquant objects </span></span>
-<span id="cb3-2"><a href="maldiquant.html#cb3-2" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">createMassSpectrum</span>(<span class="at">mass=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">intensity=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb3-3"><a href="maldiquant.html#cb3-3" tabindex="-1"></a>                        <span class="at">metaData=</span><span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Spectrum1&quot;</span>))</span>
-<span id="cb3-4"><a href="maldiquant.html#cb3-4" tabindex="-1"></a>s</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="maldiquant.html#cb3-1" tabindex="-1"></a><span class="co"># Creating a MALDIquant mass spectrum object</span></span>
+<span id="cb3-2"><a href="maldiquant.html#cb3-2" tabindex="-1"></a><span class="co"># mass is the m/z value </span></span>
+<span id="cb3-3"><a href="maldiquant.html#cb3-3" tabindex="-1"></a><span class="co"># intensity is how many detected ions per peak</span></span>
+<span id="cb3-4"><a href="maldiquant.html#cb3-4" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">createMassSpectrum</span>(<span class="at">mass=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">intensity=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb3-5"><a href="maldiquant.html#cb3-5" tabindex="-1"></a>                        <span class="at">metaData=</span><span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Spectrum1&quot;</span>))</span>
+<span id="cb3-6"><a href="maldiquant.html#cb3-6" tabindex="-1"></a>s</span></code></pre></div>
 <pre><code>## S4 class type            : MassSpectrum
 ## Number of m/z values     : 10          
 ## Range of m/z values      : 1 - 10      
 ## Range of intensity values: 1 - 10      
 ## Memory usage             : 1.414 KiB   
 ## Name                     : Spectrum1</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="maldiquant.html#cb5-1" tabindex="-1"></a><span class="co"># importeer voorbeeld data </span></span>
-<span id="cb5-2"><a href="maldiquant.html#cb5-2" tabindex="-1"></a><span class="co"># subset van MALDI-TOF data van Fiedler et al(2009)</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="maldiquant.html#cb5-1" tabindex="-1"></a><span class="co"># Importing example data</span></span>
+<span id="cb5-2"><a href="maldiquant.html#cb5-2" tabindex="-1"></a><span class="co"># A subset of MALDI-TOF data from Fiedler et al. (2009)</span></span>
 <span id="cb5-3"><a href="maldiquant.html#cb5-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;fiedler2009subset&quot;</span>)</span>
 <span id="cb5-4"><a href="maldiquant.html#cb5-4" tabindex="-1"></a><span class="fu">length</span>(fiedler2009subset)</span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
@@ -244,7 +275,7 @@ Door op internet informatie te vinden over de package zou ik deze willen toepass
 ## Memory usage             : 506.359 KiB                 
 ## Name                     : Pankreas_HB_L_061019_G10.M20
 ## File                     : /data/set A - discovery leipzig/control/Pankreas_HB_L_061019_G10/0_m20/1/1SLin/fid</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="maldiquant.html#cb9-1" tabindex="-1"></a><span class="co"># quality control: alle spectra hetzelfde aantal data punten die niet leeg zijn</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="maldiquant.html#cb9-1" tabindex="-1"></a><span class="co"># Quality control: Check if all spectra have the same number of non-empty data points</span></span>
 <span id="cb9-2"><a href="maldiquant.html#cb9-2" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">sapply</span>(fiedler2009subset, isEmpty))</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="maldiquant.html#cb11-1" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sapply</span>(fiedler2009subset, length))</span></code></pre></div>
@@ -253,11 +284,11 @@ Door op internet informatie te vinden over de package zou ik deze willen toepass
 ##    16</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="maldiquant.html#cb13-1" tabindex="-1"></a><span class="fu">all</span>(<span class="fu">sapply</span>(fiedler2009subset, isRegular))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="maldiquant.html#cb15-1" tabindex="-1"></a><span class="co"># plot</span></span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="maldiquant.html#cb15-1" tabindex="-1"></a><span class="co"># Plotting the spectra</span></span>
 <span id="cb15-2"><a href="maldiquant.html#cb15-2" tabindex="-1"></a><span class="fu">plot</span>(fiedler2009subset[[<span class="dv">1</span>]])</span></code></pre></div>
-<p><img src="_main_files/figure-html/Vignettte-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/Vignette-1.png" width="672" /></p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="maldiquant.html#cb16-1" tabindex="-1"></a><span class="fu">plot</span>(fiedler2009subset[[<span class="dv">16</span>]])</span></code></pre></div>
-<p><img src="_main_files/figure-html/Vignettte-2.png" width="672" /></p>
+<p><img src="_main_files/figure-html/Vignette-2.png" width="672" /></p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="maldiquant.html#cb17-1" tabindex="-1"></a>fiedler2009subset[<span class="dv">16</span>]</span></code></pre></div>
 <pre><code>## $sPankreas_HB_L_061019_D9.G18.T_0209513_0020740_18
 ## S4 class type            : MassSpectrum               
@@ -267,27 +298,28 @@ Door op internet informatie te vinden over de package zou ik deze willen toepass
 ## Memory usage             : 506.367 KiB                
 ## Name                     : Pankreas_HB_L_061019_D9.G18
 ## File                     : /data/set B - discovery heidelberg/tumor/Pankreas_HB_L_061019_D9/0_g18/1/1SLin/fid</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="maldiquant.html#cb19-1" tabindex="-1"></a><span class="co"># variance stabilization </span></span>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="maldiquant.html#cb19-1" tabindex="-1"></a><span class="co"># Variance stabilization </span></span>
 <span id="cb19-2"><a href="maldiquant.html#cb19-2" tabindex="-1"></a>spectra <span class="ot">&lt;-</span> <span class="fu">transformIntensity</span>(fiedler2009subset,</span>
 <span id="cb19-3"><a href="maldiquant.html#cb19-3" tabindex="-1"></a>                              <span class="at">method =</span> <span class="st">&quot;sqrt&quot;</span>)</span>
-<span id="cb19-4"><a href="maldiquant.html#cb19-4" tabindex="-1"></a><span class="co"># smoothing </span></span>
-<span id="cb19-5"><a href="maldiquant.html#cb19-5" tabindex="-1"></a>spectra <span class="ot">&lt;-</span> <span class="fu">smoothIntensity</span>(spectra, <span class="at">method=</span><span class="st">&quot;SavitzkyGolay&quot;</span>,</span>
-<span id="cb19-6"><a href="maldiquant.html#cb19-6" tabindex="-1"></a>                           <span class="at">halfWindowSize=</span><span class="dv">10</span>)</span>
-<span id="cb19-7"><a href="maldiquant.html#cb19-7" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="maldiquant.html#cb19-8" tabindex="-1"></a><span class="co"># baseline correction</span></span>
-<span id="cb19-9"><a href="maldiquant.html#cb19-9" tabindex="-1"></a>baseline <span class="ot">&lt;-</span> <span class="fu">estimateBaseline</span>(spectra[[<span class="dv">16</span>]], <span class="at">method=</span><span class="st">&quot;SNIP&quot;</span>,</span>
-<span id="cb19-10"><a href="maldiquant.html#cb19-10" tabindex="-1"></a>                              <span class="at">iterations=</span><span class="dv">100</span>)</span>
-<span id="cb19-11"><a href="maldiquant.html#cb19-11" tabindex="-1"></a><span class="fu">plot</span>(spectra[[<span class="dv">16</span>]])</span>
-<span id="cb19-12"><a href="maldiquant.html#cb19-12" tabindex="-1"></a><span class="fu">lines</span>(baseline, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/Vignettte-3.png" width="672" /></p>
+<span id="cb19-4"><a href="maldiquant.html#cb19-4" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="maldiquant.html#cb19-5" tabindex="-1"></a><span class="co"># Smoothing the spectra</span></span>
+<span id="cb19-6"><a href="maldiquant.html#cb19-6" tabindex="-1"></a>spectra <span class="ot">&lt;-</span> <span class="fu">smoothIntensity</span>(spectra, <span class="at">method=</span><span class="st">&quot;SavitzkyGolay&quot;</span>,</span>
+<span id="cb19-7"><a href="maldiquant.html#cb19-7" tabindex="-1"></a>                           <span class="at">halfWindowSize=</span><span class="dv">10</span>)</span>
+<span id="cb19-8"><a href="maldiquant.html#cb19-8" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="maldiquant.html#cb19-9" tabindex="-1"></a><span class="co"># Baseline correction</span></span>
+<span id="cb19-10"><a href="maldiquant.html#cb19-10" tabindex="-1"></a>baseline <span class="ot">&lt;-</span> <span class="fu">estimateBaseline</span>(spectra[[<span class="dv">16</span>]], <span class="at">method=</span><span class="st">&quot;SNIP&quot;</span>,</span>
+<span id="cb19-11"><a href="maldiquant.html#cb19-11" tabindex="-1"></a>                              <span class="at">iterations=</span><span class="dv">100</span>)</span>
+<span id="cb19-12"><a href="maldiquant.html#cb19-12" tabindex="-1"></a><span class="fu">plot</span>(spectra[[<span class="dv">16</span>]])</span>
+<span id="cb19-13"><a href="maldiquant.html#cb19-13" tabindex="-1"></a><span class="fu">lines</span>(baseline, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/Vignette-3.png" width="672" /></p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="maldiquant.html#cb20-1" tabindex="-1"></a>spectra <span class="ot">&lt;-</span> <span class="fu">removeBaseline</span>(spectra, <span class="at">method=</span><span class="st">&quot;SNIP&quot;</span>,</span>
 <span id="cb20-2"><a href="maldiquant.html#cb20-2" tabindex="-1"></a>                           <span class="at">iterations=</span><span class="dv">100</span>)</span>
 <span id="cb20-3"><a href="maldiquant.html#cb20-3" tabindex="-1"></a><span class="fu">plot</span>(spectra[[<span class="dv">1</span>]])</span></code></pre></div>
-<p><img src="_main_files/figure-html/Vignettte-4.png" width="672" /></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="maldiquant.html#cb21-1" tabindex="-1"></a><span class="co"># normalisatie </span></span>
+<p><img src="_main_files/figure-html/Vignette-4.png" width="672" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="maldiquant.html#cb21-1" tabindex="-1"></a><span class="co"># Normalization </span></span>
 <span id="cb21-2"><a href="maldiquant.html#cb21-2" tabindex="-1"></a>spectra <span class="ot">&lt;-</span> <span class="fu">calibrateIntensity</span>(spectra, <span class="at">method=</span><span class="st">&quot;TIC&quot;</span>)</span>
 <span id="cb21-3"><a href="maldiquant.html#cb21-3" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="maldiquant.html#cb21-4" tabindex="-1"></a><span class="co"># alignment </span></span>
+<span id="cb21-4"><a href="maldiquant.html#cb21-4" tabindex="-1"></a><span class="co"># Alignment of spectra</span></span>
 <span id="cb21-5"><a href="maldiquant.html#cb21-5" tabindex="-1"></a>spectra <span class="ot">&lt;-</span> <span class="fu">alignSpectra</span>(spectra,</span>
 <span id="cb21-6"><a href="maldiquant.html#cb21-6" tabindex="-1"></a>                        <span class="at">halfWindowSize=</span><span class="dv">20</span>,</span>
 <span id="cb21-7"><a href="maldiquant.html#cb21-7" tabindex="-1"></a>                        <span class="at">SNR=</span><span class="dv">2</span>,</span>
@@ -300,21 +332,21 @@ Door op internet informatie te vinden over de package zou ik deze willen toepass
 <span id="cb21-14"><a href="maldiquant.html#cb21-14" tabindex="-1"></a>avgSpectra <span class="ot">&lt;-</span> <span class="fu">averageMassSpectra</span>(spectra, <span class="at">labels=</span>samples,</span>
 <span id="cb21-15"><a href="maldiquant.html#cb21-15" tabindex="-1"></a>                                  <span class="at">method=</span><span class="st">&quot;mean&quot;</span>)</span>
 <span id="cb21-16"><a href="maldiquant.html#cb21-16" tabindex="-1"></a></span>
-<span id="cb21-17"><a href="maldiquant.html#cb21-17" tabindex="-1"></a><span class="co"># Peak detectie </span></span>
+<span id="cb21-17"><a href="maldiquant.html#cb21-17" tabindex="-1"></a><span class="co"># Peak detection</span></span>
 <span id="cb21-18"><a href="maldiquant.html#cb21-18" tabindex="-1"></a>noise <span class="ot">&lt;-</span> <span class="fu">estimateNoise</span>(avgSpectra[[<span class="dv">1</span>]])</span>
-<span id="cb21-19"><a href="maldiquant.html#cb21-19" tabindex="-1"></a> <span class="fu">plot</span>(avgSpectra[[<span class="dv">1</span>]], <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">4000</span>, <span class="dv">5000</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.002</span>))</span>
-<span id="cb21-20"><a href="maldiquant.html#cb21-20" tabindex="-1"></a> <span class="fu">lines</span>(noise, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb21-21"><a href="maldiquant.html#cb21-21" tabindex="-1"></a> <span class="fu">lines</span>(noise[,<span class="dv">1</span>], noise[, <span class="dv">2</span>]<span class="sc">*</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/Vignettte-5.png" width="672" /></p>
+<span id="cb21-19"><a href="maldiquant.html#cb21-19" tabindex="-1"></a><span class="fu">plot</span>(avgSpectra[[<span class="dv">1</span>]], <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">4000</span>, <span class="dv">5000</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.002</span>))</span>
+<span id="cb21-20"><a href="maldiquant.html#cb21-20" tabindex="-1"></a><span class="fu">lines</span>(noise, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb21-21"><a href="maldiquant.html#cb21-21" tabindex="-1"></a><span class="fu">lines</span>(noise[,<span class="dv">1</span>], noise[, <span class="dv">2</span>]<span class="sc">*</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/Vignette-5.png" width="672" /></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="maldiquant.html#cb22-1" tabindex="-1"></a>peaks <span class="ot">&lt;-</span> <span class="fu">detectPeaks</span>(avgSpectra, <span class="at">method=</span><span class="st">&quot;MAD&quot;</span>,</span>
-<span id="cb22-2"><a href="maldiquant.html#cb22-2" tabindex="-1"></a>                       <span class="at">halfWindowSize=</span><span class="dv">20</span>, <span class="at">SNR=</span><span class="dv">2</span>)</span>
+<span id="cb22-2"><a href="maldiquant.html#cb22-2" tabindex="-1"></a>                     <span class="at">halfWindowSize=</span><span class="dv">20</span>, <span class="at">SNR=</span><span class="dv">2</span>)</span>
 <span id="cb22-3"><a href="maldiquant.html#cb22-3" tabindex="-1"></a><span class="fu">plot</span>(avgSpectra[[<span class="dv">1</span>]], <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">4000</span>, <span class="dv">5000</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.002</span>))</span>
 <span id="cb22-4"><a href="maldiquant.html#cb22-4" tabindex="-1"></a><span class="fu">points</span>(peaks[[<span class="dv">1</span>]], <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">pch=</span><span class="dv">4</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/Vignettte-6.png" width="672" /></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="maldiquant.html#cb23-1" tabindex="-1"></a><span class="co"># peak binning  </span></span>
+<p><img src="_main_files/figure-html/Vignette-6.png" width="672" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="maldiquant.html#cb23-1" tabindex="-1"></a><span class="co"># Peak binning  </span></span>
 <span id="cb23-2"><a href="maldiquant.html#cb23-2" tabindex="-1"></a>peaks <span class="ot">&lt;-</span> <span class="fu">binPeaks</span>(peaks, <span class="at">tolerance=</span><span class="fl">0.002</span>)</span>
 <span id="cb23-3"><a href="maldiquant.html#cb23-3" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="maldiquant.html#cb23-4" tabindex="-1"></a><span class="co"># feature matrix </span></span>
+<span id="cb23-4"><a href="maldiquant.html#cb23-4" tabindex="-1"></a><span class="co"># Creating a feature matrix </span></span>
 <span id="cb23-5"><a href="maldiquant.html#cb23-5" tabindex="-1"></a>peaks <span class="ot">&lt;-</span> <span class="fu">filterPeaks</span>(peaks, <span class="at">minFrequency=</span><span class="fl">0.25</span>)</span>
 <span id="cb23-6"><a href="maldiquant.html#cb23-6" tabindex="-1"></a>featureMatrix <span class="ot">&lt;-</span> <span class="fu">intensityMatrix</span>(peaks, avgSpectra)</span>
 <span id="cb23-7"><a href="maldiquant.html#cb23-7" tabindex="-1"></a><span class="fu">head</span>(featureMatrix[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span></code></pre></div>
@@ -325,8 +357,30 @@ Door op internet informatie te vinden over de package zou ik deze willen toepass
 ## [4,]     0.0002314181    0.0005260977     0.0001441254
 ## [5,]     0.0001562401    0.0024054031     0.0001198008
 ## [6,]     0.0001600630    0.0020315191     0.0001090484</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="maldiquant.html#cb25-1" tabindex="-1"></a><span class="co"># Plot example results</span></span>
+<span id="cb25-2"><a href="maldiquant.html#cb25-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb25-3"><a href="maldiquant.html#cb25-3" tabindex="-1"></a>xlim <span class="ot">&lt;-</span> <span class="fu">range</span>(<span class="fu">mass</span>(spectra[[<span class="dv">1</span>]]))  <span class="co"># Use the same xlim for all plots for better comparison</span></span>
+<span id="cb25-4"><a href="maldiquant.html#cb25-4" tabindex="-1"></a><span class="fu">plot</span>(spectra[[<span class="dv">1</span>]], <span class="at">main =</span> <span class="st">&quot;1: raw&quot;</span>, <span class="at">sub =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlim =</span> xlim)</span>
+<span id="cb25-5"><a href="maldiquant.html#cb25-5" tabindex="-1"></a><span class="fu">plot</span>(spectra[[<span class="dv">1</span>]], <span class="at">main =</span> <span class="st">&quot;2: variance stabilization&quot;</span>, <span class="at">sub =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlim =</span> xlim)</span>
+<span id="cb25-6"><a href="maldiquant.html#cb25-6" tabindex="-1"></a><span class="fu">plot</span>(spectra[[<span class="dv">1</span>]], <span class="at">main =</span> <span class="st">&quot;3: smoothing&quot;</span>, <span class="at">sub =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlim =</span> xlim)</span>
+<span id="cb25-7"><a href="maldiquant.html#cb25-7" tabindex="-1"></a><span class="fu">plot</span>(spectra[[<span class="dv">1</span>]], <span class="at">main =</span> <span class="st">&quot;4: baseline correction&quot;</span>, <span class="at">sub =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlim =</span> xlim)</span>
+<span id="cb25-8"><a href="maldiquant.html#cb25-8" tabindex="-1"></a><span class="fu">plot</span>(spectra[[<span class="dv">1</span>]], <span class="at">main =</span> <span class="st">&quot;5: peak detection&quot;</span>, <span class="at">sub =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlim =</span> xlim)</span>
+<span id="cb25-9"><a href="maldiquant.html#cb25-9" tabindex="-1"></a><span class="fu">points</span>(peaks[[<span class="dv">1</span>]])</span>
+<span id="cb25-10"><a href="maldiquant.html#cb25-10" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/Vignette-7.png" width="672" /></p>
+<p><em>Creating a MALDIquant mass spectrum object</em> -&gt; you would only use this function when you are working with raw/custom data that you need to put manually in Rstudio. The fiedler2009subdata is already in the MassSpectrum object.</p>
+<p>Without your data in a MassSpectrum object you would need to manually structure your data for every step of the analysis, which would be prone to errors.</p>
+</div>
+<div id="references" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> References<a href="maldiquant.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Deepika, D., &amp; Kumar, V. (2023). The role of “Physiologically Based Pharmacokinetic Model (PBPK)” New Approach Methodology (NAM) in Pharmaceuticals and Environmental Chemical Risk assessment. International Journal of Environmental Research and Public Health, 20(4), 3473. <a href="https://doi.org/10.3390/ijerph20043473" class="uri">https://doi.org/10.3390/ijerph20043473</a><a href="maldiquant.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
