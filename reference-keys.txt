@@ -1,4 +1,8 @@
-introductie
+fig:unnamed-chunk-6-1
+fig:unnamed-chunk-6-2
+fig:unnamed-chunk-7-1
+fig:unnamed-chunk-7-2
+introduction
 cv
 education
 important-courses
@@ -17,7 +21,7 @@ summary
 review
 sql
 datetime-r-package
-introduction
+introduction-1
 installation
 fuctions-of-the-package
 calculating-date-difference
@@ -25,7 +29,7 @@ add-time-to-a-date
 check-if-two-dates-are-on-the-same-day
 check-for-dutch-holidays
 projecticum-ner
-introduction-1
+introduction-2
 physiologically-based-pharmacokinetic-models
 prodigy
 named-entity-recognition-models
