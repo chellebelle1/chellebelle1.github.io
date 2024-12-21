@@ -1,0 +1,11 @@
+name: "portfolio"
+output_dir: "_site"
+navbar:
+  title: "portfolio"
+  left:
+    - text: "Home"
+      href: index.html
+output:
+  html_document:
+    self_contained: false
+site: rmarkdown::render_site

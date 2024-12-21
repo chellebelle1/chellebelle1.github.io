@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Open Peer Review | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Open Peer Review | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Open Peer Review | _main.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="maldiquant.html"/>
+<link rel="next" href="sql.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/core-js-2.5.3/shim.min.js"></script>
+<script src="libs/react-18.2.0/react.min.js"></script>
+<script src="libs/react-18.2.0/react-dom.min.js"></script>
+<script src="libs/reactwidget-2.0.0/react-tools.umd.cjs"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/reactable-0.4.4/reactable.css" rel="stylesheet" />
+<script src="libs/reactable-binding-0.4.4/reactable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="cv.html"><a href="cv.html"><i class="fa fa-check"></i><b>2</b> CV</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="cv.html"><a href="cv.html#education"><i class="fa fa-check"></i><b>2.1</b> Education</a></li>
+<li class="chapter" data-level="2.2" data-path="cv.html"><a href="cv.html#important-courses"><i class="fa fa-check"></i><b>2.2</b> Important Courses</a></li>
+<li class="chapter" data-level="2.3" data-path="cv.html"><a href="cv.html#projects"><i class="fa fa-check"></i><b>2.3</b> Projects</a></li>
+<li class="chapter" data-level="2.4" data-path="cv.html"><a href="cv.html#minor-data-science-for-biology"><i class="fa fa-check"></i><b>2.4</b> Minor Data science for Biology</a></li>
+<li class="chapter" data-level="2.5" data-path="cv.html"><a href="cv.html#important-skills"><i class="fa fa-check"></i><b>2.5</b> Important Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="maldiquant.html"><a href="maldiquant.html"><i class="fa fa-check"></i><b>3</b> MALDIquant</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="maldiquant.html"><a href="maldiquant.html#intro"><i class="fa fa-check"></i><b>3.1</b> Intro</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="maldiquant.html"><a href="maldiquant.html#schedule"><i class="fa fa-check"></i><b>3.1.1</b> Schedule</a></li>
+<li class="chapter" data-level="3.1.2" data-path="maldiquant.html"><a href="maldiquant.html#videos"><i class="fa fa-check"></i><b>3.1.2</b> Videos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="maldiquant.html"><a href="maldiquant.html#manual"><i class="fa fa-check"></i><b>3.2</b> Manual</a></li>
+<li class="chapter" data-level="3.3" data-path="maldiquant.html"><a href="maldiquant.html#references"><i class="fa fa-check"></i><b>3.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="open-peer-review.html"><a href="open-peer-review.html"><i class="fa fa-check"></i><b>4</b> Open Peer Review</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="open-peer-review.html"><a href="open-peer-review.html#article"><i class="fa fa-check"></i><b>4.1</b> Article</a></li>
+<li class="chapter" data-level="4.2" data-path="open-peer-review.html"><a href="open-peer-review.html#summary"><i class="fa fa-check"></i><b>4.2</b> Summary</a></li>
+<li class="chapter" data-level="4.3" data-path="open-peer-review.html"><a href="open-peer-review.html#review"><i class="fa fa-check"></i><b>4.3</b> Review</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>5</b> SQL</a></li>
+<li class="chapter" data-level="6" data-path="datetime-r-package.html"><a href="datetime-r-package.html"><i class="fa fa-check"></i><b>6</b> DateTime R Package</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datetime-r-package.html"><a href="datetime-r-package.html#introduction-1"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="datetime-r-package.html"><a href="datetime-r-package.html#installation"><i class="fa fa-check"></i><b>6.2</b> Installation</a></li>
+<li class="chapter" data-level="6.3" data-path="datetime-r-package.html"><a href="datetime-r-package.html#fuctions-of-the-package"><i class="fa fa-check"></i><b>6.3</b> Fuctions of the package</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="datetime-r-package.html"><a href="datetime-r-package.html#calculating-date-difference"><i class="fa fa-check"></i><b>6.3.1</b> Calculating date difference</a></li>
+<li class="chapter" data-level="6.3.2" data-path="datetime-r-package.html"><a href="datetime-r-package.html#add-time-to-a-date"><i class="fa fa-check"></i><b>6.3.2</b> Add time to a date</a></li>
+<li class="chapter" data-level="6.3.3" data-path="datetime-r-package.html"><a href="datetime-r-package.html#check-if-two-dates-are-on-the-same-day"><i class="fa fa-check"></i><b>6.3.3</b> Check if two dates are on the same day</a></li>
+<li class="chapter" data-level="6.3.4" data-path="datetime-r-package.html"><a href="datetime-r-package.html#check-for-dutch-holidays"><i class="fa fa-check"></i><b>6.3.4</b> Check for Dutch holidays</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="projecticum-ner.html"><a href="projecticum-ner.html"><i class="fa fa-check"></i><b>7</b> Projecticum NER</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="projecticum-ner.html"><a href="projecticum-ner.html#introduction-2"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="projecticum-ner.html"><a href="projecticum-ner.html#physiologically-based-pharmacokinetic-models"><i class="fa fa-check"></i><b>7.2</b> Physiologically Based Pharmacokinetic models</a></li>
+<li class="chapter" data-level="7.3" data-path="projecticum-ner.html"><a href="projecticum-ner.html#prodigy"><i class="fa fa-check"></i><b>7.3</b> Prodigy</a></li>
+<li class="chapter" data-level="7.4" data-path="projecticum-ner.html"><a href="projecticum-ner.html#named-entity-recognition-models"><i class="fa fa-check"></i><b>7.4</b> Named Entity Recognition models</a></li>
+<li class="chapter" data-level="7.5" data-path="projecticum-ner.html"><a href="projecticum-ner.html#references-1"><i class="fa fa-check"></i><b>7.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html"><i class="fa fa-check"></i><b>8</b> Parameterized COVID-19 report</a>
+<ul>
+<li class="chapter" data-level="" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html#importeren-en-inspecteren"><i class="fa fa-check"></i>Importeren en inspecteren</a></li>
+<li class="chapter" data-level="" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html#line-chart-the-netherlands-belgium-and-germany"><i class="fa fa-check"></i>Line chart the Netherlands, Belgium and Germany</a></li>
+<li class="chapter" data-level="" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html#line-chart-romania-liechtenstein-and-italy"><i class="fa fa-check"></i>Line chart Romania, Liechtenstein and Italy</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="open-peer-review" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Open Peer Review<a href="open-peer-review.html#open-peer-review" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="article" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Article<a href="open-peer-review.html#article" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An, A.Y. et al. (2023) Dynamic gene expression analysis reveals distinct severity phases of immune and cellular dysregulation in COVID-19, bioRxiv. Available at: <a href="https://www.biorxiv.org/content/10.1101/2023.11.04.565404v1.full" class="uri">https://www.biorxiv.org/content/10.1101/2023.11.04.565404v1.full</a> (Accessed: 02 May 2024).</p>
+</div>
+<div id="summary" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Summary<a href="open-peer-review.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Objective
+To investigate longitudinal changes in gene expression profiles throughout the COVID-19 disease timeline.</p>
+<p>Methods
+Three-hundred whole blood samples from 128 adult patients were collected during hospitalization from COVID-19, with up to five samples per patient. Transcriptome sequencing (RNA-Seq), differential gene expression analysis and pathway enrichment was performed. Drug-gene set enrichment analysis was used to identify FDA-approved medications that could inhibit critical genes and proteins at each disease phase. Prognostic gene-expression signatures were generated using machine learning to distinguish 3 disease stages.</p>
+<p>Results
+Samples were longitudinally grouped by clinical criteria and gene expression into six disease phases: Mild, Moderate, Severe, Critical, Recovery, and Discharge. Distinct mechanisms with differing trajectories during COVID-19 hospitalization were apparent. Antiviral responses peaked early in COVID-19, while heme metabolism pathways became active much later during disease. Adaptive immune dysfunction, inflammation, and metabolic derangements were most pronounced during phases with higher disease severity, while hemostatic abnormalities were elevated early and persisted throughout the disease course. Drug-gene set enrichment analysis predicted repurposed medications for potential use, including platelet inhibitors in early disease, antidiabetic medications for patients with increased disease severity, and dasatinib throughout the disease course. Disease phases could be categorized using specific gene signatures for prognosis and treatment selection. Disease phases were also highly correlated to previously developed sepsis endotypes, indicating that severity and disease timing were significant contributors to heterogeneity observed in sepsis and COVID-19.</p>
+<p>Conclusions
+Higher temporal resolution of longitudinal mechanisms in COVID-19 revealed multiple immune and cellular changes that were activated at different phases of COVID-19. Understanding how a patient’s gene expression profile changes over time can permit more accurate risk stratification of patients and provide time-dependent personalized treatments with repurposed medications. This creates an opportunity for timely intervention before patients transition to a more severe phase, potentially accelerating patients to recovery.</p>
+</div>
+<div id="review" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Review<a href="open-peer-review.html#review" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The article has been evaluated according to the criteria listed in the table below.</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="57%" />
+<col width="34%" />
+<col width="0%" />
+<col width="0%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Transparency Criteria</th>
+<th align="center">Definition</th>
+<th align="center">Response</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Study Purpose</td>
+<td align="center">A concise statement in the introduction of the article, often in the last paragraph, that establishes the reason the research was conducted. Also called the study objective.</td>
+<td align="center">yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="center">Data Availability Statement</td>
+<td align="center">A statement, in an individual section offset from the main body of text, that explains how or if one can access a study’s data. The title of the section may vary, but it must explicitly mention data; it is therefore distinct from a supplementary materials section.</td>
+<td align="center">yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="center">Data Location</td>
+<td align="center">Where the article’s data can be accessed, either raw or processed.</td>
+<td align="center">The datasets generated for this study can be found on GEO: GSE221234 and GSE222253. Code is available upon request (Dr. Robert Hancock, bob{at}hancocklab.com).</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="center">Study Location</td>
+<td align="center">Author has stated in the methods section where the study took place or the data’s country/region of origin.</td>
+<td align="center">yes,</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="center">Author Review</td>
+<td align="center">The professionalism of the contact information that the author has provided in the manuscript.</td>
+<td align="center">yes, with information of the researchers and an e-mail.</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="center">Ethics Statement</td>
+<td align="center">A statement within the manuscript indicating any ethical concerns, including the presence of sensitive data.</td>
+<td align="center">yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="center">Funding Statement</td>
+<td align="center">A statement within the manuscript indicating whether or not the authors received funding for their research.</td>
+<td align="center">yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="center">Code Availability</td>
+<td align="center">Authors have shared access to the most updated code that they used in their study, including code used for analysis.</td>
+<td align="center">no</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="maldiquant.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sql.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

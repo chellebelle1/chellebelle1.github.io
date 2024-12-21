@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 SQL | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 SQL | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 SQL | _main.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="open-peer-review.html"/>
+<link rel="next" href="datetime-r-package.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/core-js-2.5.3/shim.min.js"></script>
+<script src="libs/react-18.2.0/react.min.js"></script>
+<script src="libs/react-18.2.0/react-dom.min.js"></script>
+<script src="libs/reactwidget-2.0.0/react-tools.umd.cjs"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/reactable-0.4.4/reactable.css" rel="stylesheet" />
+<script src="libs/reactable-binding-0.4.4/reactable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="cv.html"><a href="cv.html"><i class="fa fa-check"></i><b>2</b> CV</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="cv.html"><a href="cv.html#education"><i class="fa fa-check"></i><b>2.1</b> Education</a></li>
+<li class="chapter" data-level="2.2" data-path="cv.html"><a href="cv.html#important-courses"><i class="fa fa-check"></i><b>2.2</b> Important Courses</a></li>
+<li class="chapter" data-level="2.3" data-path="cv.html"><a href="cv.html#projects"><i class="fa fa-check"></i><b>2.3</b> Projects</a></li>
+<li class="chapter" data-level="2.4" data-path="cv.html"><a href="cv.html#minor-data-science-for-biology"><i class="fa fa-check"></i><b>2.4</b> Minor Data science for Biology</a></li>
+<li class="chapter" data-level="2.5" data-path="cv.html"><a href="cv.html#important-skills"><i class="fa fa-check"></i><b>2.5</b> Important Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="maldiquant.html"><a href="maldiquant.html"><i class="fa fa-check"></i><b>3</b> MALDIquant</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="maldiquant.html"><a href="maldiquant.html#intro"><i class="fa fa-check"></i><b>3.1</b> Intro</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="maldiquant.html"><a href="maldiquant.html#schedule"><i class="fa fa-check"></i><b>3.1.1</b> Schedule</a></li>
+<li class="chapter" data-level="3.1.2" data-path="maldiquant.html"><a href="maldiquant.html#videos"><i class="fa fa-check"></i><b>3.1.2</b> Videos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="maldiquant.html"><a href="maldiquant.html#manual"><i class="fa fa-check"></i><b>3.2</b> Manual</a></li>
+<li class="chapter" data-level="3.3" data-path="maldiquant.html"><a href="maldiquant.html#references"><i class="fa fa-check"></i><b>3.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="open-peer-review.html"><a href="open-peer-review.html"><i class="fa fa-check"></i><b>4</b> Open Peer Review</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="open-peer-review.html"><a href="open-peer-review.html#article"><i class="fa fa-check"></i><b>4.1</b> Article</a></li>
+<li class="chapter" data-level="4.2" data-path="open-peer-review.html"><a href="open-peer-review.html#summary"><i class="fa fa-check"></i><b>4.2</b> Summary</a></li>
+<li class="chapter" data-level="4.3" data-path="open-peer-review.html"><a href="open-peer-review.html#review"><i class="fa fa-check"></i><b>4.3</b> Review</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>5</b> SQL</a></li>
+<li class="chapter" data-level="6" data-path="datetime-r-package.html"><a href="datetime-r-package.html"><i class="fa fa-check"></i><b>6</b> DateTime R Package</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datetime-r-package.html"><a href="datetime-r-package.html#introduction-1"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="datetime-r-package.html"><a href="datetime-r-package.html#installation"><i class="fa fa-check"></i><b>6.2</b> Installation</a></li>
+<li class="chapter" data-level="6.3" data-path="datetime-r-package.html"><a href="datetime-r-package.html#fuctions-of-the-package"><i class="fa fa-check"></i><b>6.3</b> Fuctions of the package</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="datetime-r-package.html"><a href="datetime-r-package.html#calculating-date-difference"><i class="fa fa-check"></i><b>6.3.1</b> Calculating date difference</a></li>
+<li class="chapter" data-level="6.3.2" data-path="datetime-r-package.html"><a href="datetime-r-package.html#add-time-to-a-date"><i class="fa fa-check"></i><b>6.3.2</b> Add time to a date</a></li>
+<li class="chapter" data-level="6.3.3" data-path="datetime-r-package.html"><a href="datetime-r-package.html#check-if-two-dates-are-on-the-same-day"><i class="fa fa-check"></i><b>6.3.3</b> Check if two dates are on the same day</a></li>
+<li class="chapter" data-level="6.3.4" data-path="datetime-r-package.html"><a href="datetime-r-package.html#check-for-dutch-holidays"><i class="fa fa-check"></i><b>6.3.4</b> Check for Dutch holidays</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="projecticum-ner.html"><a href="projecticum-ner.html"><i class="fa fa-check"></i><b>7</b> Projecticum NER</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="projecticum-ner.html"><a href="projecticum-ner.html#introduction-2"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="projecticum-ner.html"><a href="projecticum-ner.html#physiologically-based-pharmacokinetic-models"><i class="fa fa-check"></i><b>7.2</b> Physiologically Based Pharmacokinetic models</a></li>
+<li class="chapter" data-level="7.3" data-path="projecticum-ner.html"><a href="projecticum-ner.html#prodigy"><i class="fa fa-check"></i><b>7.3</b> Prodigy</a></li>
+<li class="chapter" data-level="7.4" data-path="projecticum-ner.html"><a href="projecticum-ner.html#named-entity-recognition-models"><i class="fa fa-check"></i><b>7.4</b> Named Entity Recognition models</a></li>
+<li class="chapter" data-level="7.5" data-path="projecticum-ner.html"><a href="projecticum-ner.html#references-1"><i class="fa fa-check"></i><b>7.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html"><i class="fa fa-check"></i><b>8</b> Parameterized COVID-19 report</a>
+<ul>
+<li class="chapter" data-level="" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html#importeren-en-inspecteren"><i class="fa fa-check"></i>Importeren en inspecteren</a></li>
+<li class="chapter" data-level="" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html#line-chart-the-netherlands-belgium-and-germany"><i class="fa fa-check"></i>Line chart the Netherlands, Belgium and Germany</a></li>
+<li class="chapter" data-level="" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html#line-chart-romania-liechtenstein-and-italy"><i class="fa fa-check"></i>Line chart Romania, Liechtenstein and Italy</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sql" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> SQL<a href="sql.html#sql" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="sql.html#cb26-1" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb26-2"><a href="sql.html#cb26-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb26-3"><a href="sql.html#cb26-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb26-4"><a href="sql.html#cb26-4" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb26-5"><a href="sql.html#cb26-5" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb26-6"><a href="sql.html#cb26-6" tabindex="-1"></a><span class="fu">library</span>(RPostgres)</span>
+<span id="cb26-7"><a href="sql.html#cb26-7" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb26-8"><a href="sql.html#cb26-8" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb26-9"><a href="sql.html#cb26-9" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb26-10"><a href="sql.html#cb26-10" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="sql.html#cb26-11" tabindex="-1"></a><span class="co"># Load in data</span></span>
+<span id="cb26-12"><a href="sql.html#cb26-12" tabindex="-1"></a>flu_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Rachelle/flu_data.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">11</span>)</span>
+<span id="cb26-13"><a href="sql.html#cb26-13" tabindex="-1"></a>dengue_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Rachelle/dengue_data.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">11</span>)</span>
+<span id="cb26-14"><a href="sql.html#cb26-14" tabindex="-1"></a>gapminder_data <span class="ot">&lt;-</span> gapminder</span>
+<span id="cb26-15"><a href="sql.html#cb26-15" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="sql.html#cb26-16" tabindex="-1"></a><span class="co"># Make data tidy</span></span>
+<span id="cb26-17"><a href="sql.html#cb26-17" tabindex="-1"></a>flu_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(<span class="at">data =</span> flu_data, <span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">30</span>), <span class="at">names_to =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Value&quot;</span>)</span>
+<span id="cb26-18"><a href="sql.html#cb26-18" tabindex="-1"></a>flu_tidy <span class="ot">&lt;-</span> flu_tidy <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">str_sub</span>(Date, <span class="dv">1</span>, <span class="dv">4</span>)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Date)</span>
+<span id="cb26-19"><a href="sql.html#cb26-19" tabindex="-1"></a></span>
+<span id="cb26-20"><a href="sql.html#cb26-20" tabindex="-1"></a>dengue_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(<span class="at">data =</span> dengue_data, <span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>), <span class="at">names_to =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Value&quot;</span>)</span>
+<span id="cb26-21"><a href="sql.html#cb26-21" tabindex="-1"></a>dengue_tidy <span class="ot">&lt;-</span> dengue_tidy <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">str_sub</span>(Date, <span class="dv">1</span>, <span class="dv">4</span>)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Date)</span>
+<span id="cb26-22"><a href="sql.html#cb26-22" tabindex="-1"></a></span>
+<span id="cb26-23"><a href="sql.html#cb26-23" tabindex="-1"></a>gapminder_data <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(gapminder_data)</span>
+<span id="cb26-24"><a href="sql.html#cb26-24" tabindex="-1"></a>gapminder_data <span class="ot">&lt;-</span> gapminder_data <span class="sc">%&gt;%</span></span>
+<span id="cb26-25"><a href="sql.html#cb26-25" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Year =</span> year, <span class="at">Country =</span> country) <span class="sc">%&gt;%</span></span>
+<span id="cb26-26"><a href="sql.html#cb26-26" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.character</span>(Year))  <span class="co"># Convert Year to character</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="sql.html#cb27-1" tabindex="-1"></a><span class="co"># Save dataframes</span></span>
+<span id="cb27-2"><a href="sql.html#cb27-2" tabindex="-1"></a><span class="fu">write.csv</span>(flu_tidy, <span class="st">&quot;flu_tidy.csv&quot;</span>)</span>
+<span id="cb27-3"><a href="sql.html#cb27-3" tabindex="-1"></a><span class="fu">write.csv</span>(dengue_tidy, <span class="st">&quot;dengue_tidy.csv&quot;</span>)</span>
+<span id="cb27-4"><a href="sql.html#cb27-4" tabindex="-1"></a><span class="fu">write.csv</span>(gapminder_data, <span class="st">&quot;gapminder_tidy.csv&quot;</span>)</span>
+<span id="cb27-5"><a href="sql.html#cb27-5" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="sql.html#cb27-6" tabindex="-1"></a><span class="fu">saveRDS</span>(flu_tidy, <span class="st">&quot;flu_tidy.rds&quot;</span>)</span>
+<span id="cb27-7"><a href="sql.html#cb27-7" tabindex="-1"></a><span class="fu">saveRDS</span>(dengue_tidy, <span class="st">&quot;dengue_tidy.rds&quot;</span>)</span>
+<span id="cb27-8"><a href="sql.html#cb27-8" tabindex="-1"></a><span class="fu">saveRDS</span>(gapminder_data, <span class="st">&quot;gapminder_tidy.rds&quot;</span>)</span>
+<span id="cb27-9"><a href="sql.html#cb27-9" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="sql.html#cb27-10" tabindex="-1"></a><span class="co"># Connect to database in PostgreSQL</span></span>
+<span id="cb27-11"><a href="sql.html#cb27-11" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RPostgres<span class="sc">::</span><span class="fu">Postgres</span>(), </span>
+<span id="cb27-12"><a href="sql.html#cb27-12" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">&quot;workflowsdb&quot;</span>, </span>
+<span id="cb27-13"><a href="sql.html#cb27-13" tabindex="-1"></a>                 <span class="at">host=</span><span class="st">&quot;localhost&quot;</span>, </span>
+<span id="cb27-14"><a href="sql.html#cb27-14" tabindex="-1"></a>                 <span class="at">port=</span><span class="st">&quot;5432&quot;</span>, </span>
+<span id="cb27-15"><a href="sql.html#cb27-15" tabindex="-1"></a>                 <span class="at">user=</span><span class="st">&quot;postgres&quot;</span>, </span>
+<span id="cb27-16"><a href="sql.html#cb27-16" tabindex="-1"></a>                 <span class="at">password=</span><span class="st">&quot;password&quot;</span>) </span>
+<span id="cb27-17"><a href="sql.html#cb27-17" tabindex="-1"></a></span>
+<span id="cb27-18"><a href="sql.html#cb27-18" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;gapminder&quot;</span>, gapminder_data)</span>
+<span id="cb27-19"><a href="sql.html#cb27-19" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;flu&quot;</span>, flu_tidy)</span>
+<span id="cb27-20"><a href="sql.html#cb27-20" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;dengue&quot;</span>, dengue_tidy)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="sql.html#cb28-1" tabindex="-1"></a><span class="co"># Inspect contents of the tables</span></span>
+<span id="cb28-2"><a href="sql.html#cb28-2" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">rache</span><span class="sc">\\</span><span class="st">OneDrive</span><span class="sc">\\</span><span class="st">Documenten</span><span class="sc">\\</span><span class="st">Schermafbeelding 2024-08-18 230338.png&quot;</span>)</span></code></pre></div>
+<p><img src="../Schermafbeelding 2024-08-18 230338.png" width="522" /></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="sql.html#cb29-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">rache</span><span class="sc">\\</span><span class="st">OneDrive</span><span class="sc">\\</span><span class="st">Documenten</span><span class="sc">\\</span><span class="st">Schermafbeelding 2024-08-18 230429.png&quot;</span>)</span></code></pre></div>
+<p><img src="../Schermafbeelding 2024-08-18 230429.png" width="478" /></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="sql.html#cb30-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">rache</span><span class="sc">\\</span><span class="st">OneDrive</span><span class="sc">\\</span><span class="st">Documenten</span><span class="sc">\\</span><span class="st">Schermafbeelding 2024-08-18 230509.png&quot;</span>)</span></code></pre></div>
+<p><img src="../Schermafbeelding 2024-08-18 230509.png" width="581" /></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="sql.html#cb31-1" tabindex="-1"></a><span class="co"># Join the tables together</span></span>
+<span id="cb31-2"><a href="sql.html#cb31-2" tabindex="-1"></a>flu_tidy <span class="ot">&lt;-</span> flu_tidy <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.character</span>(year))</span>
+<span id="cb31-3"><a href="sql.html#cb31-3" tabindex="-1"></a>dengue_tidy <span class="ot">&lt;-</span> dengue_tidy <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.character</span>(year))</span>
+<span id="cb31-4"><a href="sql.html#cb31-4" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="sql.html#cb31-5" tabindex="-1"></a>flu_dengue <span class="ot">&lt;-</span> <span class="fu">full_join</span>(flu_tidy, dengue_tidy, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_flu&quot;</span>, <span class="st">&quot;_dengue&quot;</span>))</span>
+<span id="cb31-6"><a href="sql.html#cb31-6" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="sql.html#cb31-7" tabindex="-1"></a><span class="co"># Rename &#39;year&#39; to &#39;Year&#39; in flu_dengue for consistency with gapminder_data</span></span>
+<span id="cb31-8"><a href="sql.html#cb31-8" tabindex="-1"></a>flu_dengue <span class="ot">&lt;-</span> flu_dengue <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Year =</span> year)</span>
+<span id="cb31-9"><a href="sql.html#cb31-9" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="sql.html#cb31-10" tabindex="-1"></a><span class="co"># Join with gapminder</span></span>
+<span id="cb31-11"><a href="sql.html#cb31-11" tabindex="-1"></a>flu_dengue_gapminder <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flu_dengue, gapminder_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Year&quot;</span>))</span>
+<span id="cb31-12"><a href="sql.html#cb31-12" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="sql.html#cb31-13" tabindex="-1"></a><span class="co"># Check the resulting dataframe</span></span>
+<span id="cb31-14"><a href="sql.html#cb31-14" tabindex="-1"></a><span class="fu">print</span>(flu_dengue_gapminder)</span></code></pre></div>
+<pre><code>## # A tibble: 155,161 × 11
+##    Country   Value_flu Year  Value_dengue infant_mortality life_expectancy
+##    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
+##  1 Argentina        NA 2002        NA                 17.1            74.3
+##  2 Australia        NA 2002        NA                  5              80.3
+##  3 Austria          NA 2002        NA                  4.4            78.8
+##  4 Belgium          NA 2002        NA                  4.4            78.2
+##  5 Bolivia          NA 2002         0.101             53.7            68.7
+##  6 Brazil          174 2002         0.073             24.3            71.4
+##  7 Bulgaria         NA 2002        NA                 16.3            72.1
+##  8 Canada           NA 2002        NA                  5.3            79.6
+##  9 Chile            NA 2002        NA                  8.3            77.7
+## 10 France           NA 2002        NA                  4.2            79.4
+## # ℹ 155,151 more rows
+## # ℹ 5 more variables: fertility &lt;dbl&gt;, population &lt;dbl&gt;, gdp &lt;dbl&gt;,
+## #   continent &lt;fct&gt;, region &lt;fct&gt;</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="sql.html#cb33-1" tabindex="-1"></a><span class="co"># Boxplot dengue cases per year in Brazil</span></span>
+<span id="cb33-2"><a href="sql.html#cb33-2" tabindex="-1"></a>dengue_Brazil <span class="ot">&lt;-</span> flu_dengue_gapminder <span class="sc">%&gt;%</span> <span class="fu">select</span>(Year, Country, Value_dengue) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Country <span class="sc">==</span> <span class="st">&quot;Brazil&quot;</span>, <span class="sc">!</span><span class="fu">is.na</span>(Value_dengue))</span>
+<span id="cb33-3"><a href="sql.html#cb33-3" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="sql.html#cb33-4" tabindex="-1"></a>dengue_sum <span class="ot">&lt;-</span> dengue_Brazil <span class="sc">%&gt;%</span></span>
+<span id="cb33-5"><a href="sql.html#cb33-5" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Value_dengue, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">stedv =</span> <span class="fu">sd</span>(Value_dengue, <span class="at">na.rm=</span> <span class="cn">TRUE</span>))</span>
+<span id="cb33-6"><a href="sql.html#cb33-6" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="sql.html#cb33-7" tabindex="-1"></a><span class="co"># Barchart of dengue cases per year</span></span>
+<span id="cb33-8"><a href="sql.html#cb33-8" tabindex="-1"></a>dengue_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dengue_sum, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Year), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
+<span id="cb33-9"><a href="sql.html#cb33-9" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;lightpink&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb33-10"><a href="sql.html#cb33-10" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Dengue cases Brazil (in years)&quot;</span>,</span>
+<span id="cb33-11"><a href="sql.html#cb33-11" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
+<span id="cb33-12"><a href="sql.html#cb33-12" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Average cases of dengue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb33-13"><a href="sql.html#cb33-13" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb33-14"><a href="sql.html#cb33-14" tabindex="-1"></a>dengue_plot</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="open-peer-review.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datetime-r-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
