@@ -1,0 +1,7 @@
+title: "Mijn Eenvoudige HTML-Website"
+author: "Je Naam"
+date: "2024-12-26"
+output: 
+  html_document
+encoding: UTF-8
+theme: cosmo
