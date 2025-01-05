@@ -1,0 +1,10 @@
+bookdown::gitbook:
+  css: style.css
+  highlight: tango
+  config:
+    toc:
+      collapse: section
+      before: |
+       <li><a href="./">Demo Book</a></li>
+      after: |
+        <li><a target="blank">Published with bookdown</a></li>
