@@ -224,9 +224,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>C. elegans experiment<a href="reproducible-research.html#c.-elegans-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>The data for this exercise was kindly supplied by J. Louter (INT/ILC) and was derived from an experiment in which adult C.elegans nematodes were exposed to varying concentrations of different compounds.</em></p>
 <p>First we load in the dataset.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="reproducible-research.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-2"><a href="reproducible-research.html#cb1-2" tabindex="-1"></a>CE_LIQ_FLOW_062_Tidydata <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;~/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>)</span>
-<span id="cb1-3"><a href="reproducible-research.html#cb1-3" tabindex="-1"></a><span class="fu">head</span>(CE_LIQ_FLOW_062_Tidydata)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="reproducible-research.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-2"><a href="reproducible-research.html#cb3-2" tabindex="-1"></a>CE_LIQ_FLOW_062_Tidydata <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;~/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>)</span>
+<span id="cb3-3"><a href="reproducible-research.html#cb3-3" tabindex="-1"></a><span class="fu">head</span>(CE_LIQ_FLOW_062_Tidydata)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 34
 ##   plateRow plateColumn vialNr dropCode expType    expReplicate expName        
 ##   &lt;lgl&gt;    &lt;lgl&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;          
@@ -249,41 +249,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><span style="color:#E656AE;">compName</span> = the generic name of the compound/chemical</p></li>
 <li><p><span style="color:#E656AE;">compConcentration</span> = the concentration of the compound</p></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="reproducible-research.html#cb3-1" tabindex="-1"></a><span class="co"># inspect the data types of colums RawData, compName and compConcentration</span></span>
-<span id="cb3-2"><a href="reproducible-research.html#cb3-2" tabindex="-1"></a><span class="fu">class</span>(CE_LIQ_FLOW_062_Tidydata<span class="sc">$</span>RawData)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="reproducible-research.html#cb5-1" tabindex="-1"></a><span class="co"># inspect the data types of colums RawData, compName and compConcentration</span></span>
+<span id="cb5-2"><a href="reproducible-research.html#cb5-2" tabindex="-1"></a><span class="fu">class</span>(CE_LIQ_FLOW_062_Tidydata<span class="sc">$</span>RawData)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="reproducible-research.html#cb5-1" tabindex="-1"></a><span class="fu">class</span>(CE_LIQ_FLOW_062_Tidydata<span class="sc">$</span>compName)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="reproducible-research.html#cb7-1" tabindex="-1"></a><span class="fu">class</span>(CE_LIQ_FLOW_062_Tidydata<span class="sc">$</span>compName)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="reproducible-research.html#cb7-1" tabindex="-1"></a><span class="fu">class</span>(CE_LIQ_FLOW_062_Tidydata<span class="sc">$</span>compConcentration)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="reproducible-research.html#cb9-1" tabindex="-1"></a><span class="fu">class</span>(CE_LIQ_FLOW_062_Tidydata<span class="sc">$</span>compConcentration)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>But in R the variable <span style="color:#E656AE;">compConcentration</span> is not ‘numeric’, it is of the data type ‘character’.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="reproducible-research.html#cb9-1" tabindex="-1"></a><span class="co"># convert column compConcentration from character to numeric </span></span>
-<span id="cb9-2"><a href="reproducible-research.html#cb9-2" tabindex="-1"></a><span class="co"># Remove NA and convert to numeric </span></span>
-<span id="cb9-3"><a href="reproducible-research.html#cb9-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb9-4"><a href="reproducible-research.html#cb9-4" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="reproducible-research.html#cb9-5" tabindex="-1"></a>CE_LIQ_FLOW_062_Tidydata <span class="ot">&lt;-</span> CE_LIQ_FLOW_062_Tidydata <span class="sc">%&gt;%</span></span>
-<span id="cb9-6"><a href="reproducible-research.html#cb9-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">compConcentration =</span> <span class="fu">as.numeric</span>(compConcentration)) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-7"><a href="reproducible-research.html#cb9-7" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(compConcentration))             </span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="reproducible-research.html#cb11-1" tabindex="-1"></a><span class="co"># convert column compConcentration from character to numeric </span></span>
+<span id="cb11-2"><a href="reproducible-research.html#cb11-2" tabindex="-1"></a><span class="co"># Remove NA and convert to numeric </span></span>
+<span id="cb11-3"><a href="reproducible-research.html#cb11-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-4"><a href="reproducible-research.html#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="reproducible-research.html#cb11-5" tabindex="-1"></a>CE_LIQ_FLOW_062_Tidydata <span class="ot">&lt;-</span> CE_LIQ_FLOW_062_Tidydata <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="reproducible-research.html#cb11-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">compConcentration =</span> <span class="fu">as.numeric</span>(compConcentration)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-7"><a href="reproducible-research.html#cb11-7" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(compConcentration))             </span></code></pre></div>
 <div id="scatterplot" class="section level3 unnumbered hasAnchor">
 <h3>Scatterplot<a href="reproducible-research.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Scatterplot of the data set for the different compounds and the varying concentrations down below:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><span style="color:#E656AE;font-weight:bold;">Figuur 3. Scatterplot of different compounds and varying concentrations</span></p>
 <p>The positive control for this experiment is <span style="color:#E656AE;">ethanol</span> and the negative control is <span style="color:#E656AE;">S-medium</span>.</p>
 </div>
 <div id="normalizing-the-data" class="section level3 unnumbered hasAnchor">
 <h3>Normalizing the data<a href="reproducible-research.html#normalizing-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For the dataset CE_LIQ_FLOW_062_Tidydata, the controleNegative condition was normalized so that its average value equals 1. All values are expressed as a fraction of this, which helps standardize the data and facilitates the interpretation and comparison of the effects of different conditions.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="reproducible-research.html#cb10-1" tabindex="-1"></a><span class="co"># Calculate mean value of controlNegative</span></span>
-<span id="cb10-2"><a href="reproducible-research.html#cb10-2" tabindex="-1"></a>controlNegative <span class="ot">&lt;-</span> CE_LIQ_FLOW_062_Tidydata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(CE_LIQ_FLOW_062_Tidydata<span class="sc">$</span>expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>)</span>
-<span id="cb10-3"><a href="reproducible-research.html#cb10-3" tabindex="-1"></a>controlNegative_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(controlNegative<span class="sc">$</span>RawData) </span>
-<span id="cb10-4"><a href="reproducible-research.html#cb10-4" tabindex="-1"></a>controlNegative_mean</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="reproducible-research.html#cb12-1" tabindex="-1"></a><span class="co"># Calculate mean value of controlNegative</span></span>
+<span id="cb12-2"><a href="reproducible-research.html#cb12-2" tabindex="-1"></a>controlNegative <span class="ot">&lt;-</span> CE_LIQ_FLOW_062_Tidydata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(CE_LIQ_FLOW_062_Tidydata<span class="sc">$</span>expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>)</span>
+<span id="cb12-3"><a href="reproducible-research.html#cb12-3" tabindex="-1"></a>controlNegative_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(controlNegative<span class="sc">$</span>RawData) </span>
+<span id="cb12-4"><a href="reproducible-research.html#cb12-4" tabindex="-1"></a>controlNegative_mean</span></code></pre></div>
 <pre><code>## [1] 85.9</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="reproducible-research.html#cb12-1" tabindex="-1"></a><span class="co"># Normalize data</span></span>
-<span id="cb12-2"><a href="reproducible-research.html#cb12-2" tabindex="-1"></a>CE_LIQ_FLOW_062_Tidydata <span class="ot">&lt;-</span> CE_LIQ_FLOW_062_Tidydata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">normalized =</span> CE_LIQ_FLOW_062_Tidydata<span class="sc">$</span>RawData <span class="sc">/</span> controlNegative_mean)</span>
-<span id="cb12-3"><a href="reproducible-research.html#cb12-3" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="reproducible-research.html#cb12-4" tabindex="-1"></a><span class="co"># Inspect the data types of columns RawData, compName, expType, compConcentration and normalized</span></span>
-<span id="cb12-5"><a href="reproducible-research.html#cb12-5" tabindex="-1"></a>CE_LIQ_FLOW_062_Tidydata <span class="sc">%&gt;%</span> <span class="fu">select</span>(RawData, compName, compConcentration, expType, normalized)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="reproducible-research.html#cb14-1" tabindex="-1"></a><span class="co"># Normalize data</span></span>
+<span id="cb14-2"><a href="reproducible-research.html#cb14-2" tabindex="-1"></a>CE_LIQ_FLOW_062_Tidydata <span class="ot">&lt;-</span> CE_LIQ_FLOW_062_Tidydata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">normalized =</span> CE_LIQ_FLOW_062_Tidydata<span class="sc">$</span>RawData <span class="sc">/</span> controlNegative_mean)</span>
+<span id="cb14-3"><a href="reproducible-research.html#cb14-3" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="reproducible-research.html#cb14-4" tabindex="-1"></a><span class="co"># Inspect the data types of columns RawData, compName, expType, compConcentration and normalized</span></span>
+<span id="cb14-5"><a href="reproducible-research.html#cb14-5" tabindex="-1"></a>CE_LIQ_FLOW_062_Tidydata <span class="sc">%&gt;%</span> <span class="fu">select</span>(RawData, compName, compConcentration, expType, normalized)</span></code></pre></div>
 <pre><code>## # A tibble: 359 × 5
 ##    RawData compName                   compConcentration expType    normalized
 ##      &lt;dbl&gt; &lt;chr&gt;                                  &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
@@ -298,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9      40 2,6-diisopropylnaphthalene              4.99 experiment      0.466
 ## 10      38 2,6-diisopropylnaphthalene              4.99 experiment      0.442
 ## # ℹ 349 more rows</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p><span style="color:#E656AE;font-weight:bold;">Figuur 4. Scatterplot of different compounds and varying concentrations normalized with the mean of the negative control</span></p>
 <hr />
 </div>
