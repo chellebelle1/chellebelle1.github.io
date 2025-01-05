@@ -171,9 +171,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#visualisation-microplate-assay"><i class="fa fa-check"></i>Visualisation microplate assay</a></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#plater"><i class="fa fa-check"></i>plater</a></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#gganimate"><i class="fa fa-check"></i>gganimate</a></li>
-<li class="chapter" data-level="4.1" data-path="new-packages.html"><a href="new-packages.html#geanimeerd-plot"><i class="fa fa-check"></i><b>4.1</b> <img src="animated_plot.gif" alt="Geanimeerd Plot" /></a></li>
-<li class="chapter" data-level="4.2" data-path="new-packages.html"><a href="new-packages.html#qpcr"><i class="fa fa-check"></i><b>4.2</b> qPCR</a></li>
-<li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#references"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4.1" data-path="new-packages.html"><a href="new-packages.html#animated-line-graph"><i class="fa fa-check"></i><b>4.1</b> <img src="animated_plot.gif" alt="Animated line graph" /></a></li>
+<li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#qpcr"><i class="fa fa-check"></i>qPCR</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>5</b> SQL</a></li>
 <li class="chapter" data-level="6" data-path="datetime-r-package.html"><a href="datetime-r-package.html"><i class="fa fa-check"></i><b>6</b> DateTime R Package</a>
@@ -194,7 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="projecticum-ner.html"><a href="projecticum-ner.html#physiologically-based-pharmacokinetic-models"><i class="fa fa-check"></i>Physiologically Based Pharmacokinetic models</a></li>
 <li class="chapter" data-level="" data-path="projecticum-ner.html"><a href="projecticum-ner.html#prodigy"><i class="fa fa-check"></i>Prodigy</a></li>
 <li class="chapter" data-level="" data-path="projecticum-ner.html"><a href="projecticum-ner.html#named-entity-recognition-models"><i class="fa fa-check"></i>Named Entity Recognition models</a></li>
-<li class="chapter" data-level="" data-path="projecticum-ner.html"><a href="projecticum-ner.html#references-1"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="projecticum-ner.html"><a href="projecticum-ner.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html"><i class="fa fa-check"></i><b>8</b> Parameterized COVID-19 report</a>
 <ul>
@@ -234,25 +233,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Prodigy<a href="projecticum-ner.html#prodigy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Machine learning systems are built from both code and data. It’s easy to reuse the code but hard to reuse the data, so building AI mostly means doing annotation.</p>
 <p>Prodigy addresses the big remaining problem: annotation and training. The typical approach to annotation forces projects into an uncomfortable waterfall process. The experiments can’t begin until the first batch of annotations are complete, but the annotation team can’t start until they receive the annotation manuals. To produce the annotation manuals, you need to know what statistical models will be required for the features you’re trying to build. Machine learning is an inherently uncertain technology, but the waterfall annotation process relies on accurate upfront planning. The net result is a lot of wasted effort. Prodigy solves this problem by letting data scientists conduct their own annotations, for rapid prototyping</p>
-<p>Most annotation tools avoid making any suggestions to the user, to avoid biasing the annotations. Prodigy takes the opposite approach: ask the user as little as possible, and try to guess the rest. Prodigy puts the model in the loop, so that it can actively participate in the training process and learns as you go. The model uses what it already knows to figure out what to ask you next. As you answer the questions, the model is updated, influencing which examples it asks you about next. In order to take full advantage of this strategy, Prodigy is provided as a Python library and command line utility, with a flexible web application <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<p>Most annotation tools avoid making any suggestions to the user, to avoid biasing the annotations. Prodigy takes the opposite approach: ask the user as little as possible, and try to guess the rest. Prodigy puts the model in the loop, so that it can actively participate in the training process and learns as you go. The model uses what it already knows to figure out what to ask you next. As you answer the questions, the model is updated, influencing which examples it asks you about next. In order to take full advantage of this strategy, Prodigy is provided as a Python library and command line utility, with a flexible web application <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 </div>
 <div id="named-entity-recognition-models" class="section level2 unnumbered hasAnchor">
 <h2>Named Entity Recognition models<a href="projecticum-ner.html#named-entity-recognition-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Named Entity Recognition (NER) is a critical component of Natural Language Processing (NLP) that involves identifying and classifying named entities in text into predefined categories such as people, organizations, locations, dates, and more. spaCy, a robust NLP library in Python, offers advanced tools for NER, providing a user-friendly API and powerful models.</p>
 <p>Named Entity Recognition is a sub-task of information extraction that aims to locate and classify entities within text. These entities are categorized into various predefined classes such as:</p>
 <p>NER is pivotal for tasks like information retrieval, question answering, and text summarization. It helps in structuring unstructured data, making it easier to analyze and use in applications.</p>
-<p>spaCy is an open-source NLP library designed for efficient and productive development. It supports tokenization, part-of-speech tagging, dependency parsing, and NER. spaCy’s models are pre-trained on large datasets, which makes it an excellent choice for building robust NLP applications <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>spaCy is an open-source NLP library designed for efficient and productive development. It supports tokenization, part-of-speech tagging, dependency parsing, and NER. spaCy’s models are pre-trained on large datasets, which makes it an excellent choice for building robust NLP applications <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
 </div>
-<div id="references-1" class="section level2 unnumbered hasAnchor">
-<h2>References<a href="projecticum-ner.html#references-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="references" class="section level2 unnumbered hasAnchor">
+<h2>References<a href="projecticum-ner.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="2">
-<li id="fn2"><p>Deepika, D., &amp; Kumar, V. (2023). The role of “Physiologically Based Pharmacokinetic Model (PBPK)” New Approach Methodology (NAM) in Pharmaceuticals and Environmental Chemical Risk assessment. International Journal of Environmental Research and Public Health, 20(4), 3473. <a href="https://doi.org/10.3390/ijerph20043473" class="uri">https://doi.org/10.3390/ijerph20043473</a><a href="projecticum-ner.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Montani, I. (2019, August 22). Getting started with Prodigy: A step-by-step guide. Ines Montani. <a href="https://ines.io/blog/prodigy-first-steps" class="uri">https://ines.io/blog/prodigy-first-steps</a><a href="projecticum-ner.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>Deepika, D., &amp; Kumar, V. (2023). The role of “Physiologically Based Pharmacokinetic Model (PBPK)” New Approach Methodology (NAM) in Pharmaceuticals and Environmental Chemical Risk assessment. International Journal of Environmental Research and Public Health, 20(4), 3473. <a href="https://doi.org/10.3390/ijerph20043473" class="uri">https://doi.org/10.3390/ijerph20043473</a><a href="projecticum-ner.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Montani, I. (2019, August 22). Getting started with Prodigy: A step-by-step guide. Ines Montani. <a href="https://ines.io/blog/prodigy-first-steps" class="uri">https://ines.io/blog/prodigy-first-steps</a><a href="projecticum-ner.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

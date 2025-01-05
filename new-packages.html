@@ -171,9 +171,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#visualisation-microplate-assay"><i class="fa fa-check"></i>Visualisation microplate assay</a></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#plater"><i class="fa fa-check"></i>plater</a></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#gganimate"><i class="fa fa-check"></i>gganimate</a></li>
-<li class="chapter" data-level="4.1" data-path="new-packages.html"><a href="new-packages.html#geanimeerd-plot"><i class="fa fa-check"></i><b>4.1</b> <img src="animated_plot.gif" alt="Geanimeerd Plot" /></a></li>
-<li class="chapter" data-level="4.2" data-path="new-packages.html"><a href="new-packages.html#qpcr"><i class="fa fa-check"></i><b>4.2</b> qPCR</a></li>
-<li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#references"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4.1" data-path="new-packages.html"><a href="new-packages.html#animated-line-graph"><i class="fa fa-check"></i><b>4.1</b> <img src="animated_plot.gif" alt="Animated line graph" /></a></li>
+<li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#qpcr"><i class="fa fa-check"></i>qPCR</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>5</b> SQL</a></li>
 <li class="chapter" data-level="6" data-path="datetime-r-package.html"><a href="datetime-r-package.html"><i class="fa fa-check"></i><b>6</b> DateTime R Package</a>
@@ -194,7 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="projecticum-ner.html"><a href="projecticum-ner.html#physiologically-based-pharmacokinetic-models"><i class="fa fa-check"></i>Physiologically Based Pharmacokinetic models</a></li>
 <li class="chapter" data-level="" data-path="projecticum-ner.html"><a href="projecticum-ner.html#prodigy"><i class="fa fa-check"></i>Prodigy</a></li>
 <li class="chapter" data-level="" data-path="projecticum-ner.html"><a href="projecticum-ner.html#named-entity-recognition-models"><i class="fa fa-check"></i>Named Entity Recognition models</a></li>
-<li class="chapter" data-level="" data-path="projecticum-ner.html"><a href="projecticum-ner.html#references-1"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="projecticum-ner.html"><a href="projecticum-ner.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="parameterized-covid-19-report.html"><a href="parameterized-covid-19-report.html"><i class="fa fa-check"></i><b>8</b> Parameterized COVID-19 report</a>
 <ul>
@@ -488,25 +487,57 @@ To get familiar with the package I came across an example.</p>
 <span id="cb22-40"><a href="new-packages.html#cb22-40" tabindex="-1"></a><span class="co"># save as gif </span></span>
 <span id="cb22-41"><a href="new-packages.html#cb22-41" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">&quot;animated_plot.gif&quot;</span>, animated_plot)</span></code></pre></div>
 </div>
-<div id="geanimeerd-plot" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> <img src="animated_plot.gif" alt="Geanimeerd Plot" /><a href="new-packages.html#geanimeerd-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="animated-line-graph" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> <img src="animated_plot.gif" alt="Animated line graph" /><a href="new-packages.html#animated-line-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="qpcr" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> qPCR<a href="new-packages.html#qpcr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="references" class="section level2 unnumbered hasAnchor">
-<h2>References<a href="new-packages.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>vergeet niet de volgorde aan te passsen!!!!!</p>
-<p>[^1] Hughes, S. (2024, October 25). Getting started with plater. <a href="https://cran.r-project.org/web/packages/plater/vignettes/plater-basics.html" class="uri">https://cran.r-project.org/web/packages/plater/vignettes/plater-basics.html</a></p>
-<p><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> A grammar of animated graphics. (n.d.). <a href="https://gganimate.com/" class="uri">https://gganimate.com/</a></p>
+<div id="qpcr" class="section level2 unnumbered hasAnchor">
+<h2>qPCR<a href="new-packages.html#qpcr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Next, I wanted to learn how to analyse qPCR data as this is also a method I will be using more often in the future.</p>
+<p>When looking online, I came across the “delta-delta-ct- method”.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="new-packages.html#cb23-1" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb23-2"><a href="new-packages.html#cb23-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb23-3"><a href="new-packages.html#cb23-3" tabindex="-1"></a><span class="fu">library</span>(pcr)</span>
+<span id="cb23-4"><a href="new-packages.html#cb23-4" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb23-5"><a href="new-packages.html#cb23-5" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="new-packages.html#cb23-6" tabindex="-1"></a><span class="co"># Simulated qPCR data (replace with your dataset)</span></span>
+<span id="cb23-7"><a href="new-packages.html#cb23-7" tabindex="-1"></a>qpcr_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb23-8"><a href="new-packages.html#cb23-8" tabindex="-1"></a>  <span class="at">Sample =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>, <span class="st">&quot;protein&quot;</span>), <span class="at">each =</span> <span class="dv">3</span>),</span>
+<span id="cb23-9"><a href="new-packages.html#cb23-9" tabindex="-1"></a>  <span class="at">Target_Gene =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;IL6&quot;</span>, <span class="st">&quot;TNF&quot;</span>, <span class="st">&quot;IL10&quot;</span>), <span class="dv">2</span>),</span>
+<span id="cb23-10"><a href="new-packages.html#cb23-10" tabindex="-1"></a>  <span class="at">Ct_Value =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">24</span>, <span class="dv">26</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">23</span>) <span class="co"># Example Ct values</span></span>
+<span id="cb23-11"><a href="new-packages.html#cb23-11" tabindex="-1"></a>)</span>
+<span id="cb23-12"><a href="new-packages.html#cb23-12" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="new-packages.html#cb23-13" tabindex="-1"></a><span class="co"># Normalize using a housekeeping gene (simulated data, replace with actual housekeeping Ct)</span></span>
+<span id="cb23-14"><a href="new-packages.html#cb23-14" tabindex="-1"></a>housekeeping_ct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Control =</span> <span class="dv">20</span>, <span class="at">protein =</span> <span class="dv">19</span>) <span class="co"># Example housekeeping Ct values</span></span>
+<span id="cb23-15"><a href="new-packages.html#cb23-15" tabindex="-1"></a>qpcr_data <span class="ot">&lt;-</span> qpcr_data <span class="sc">%&gt;%</span></span>
+<span id="cb23-16"><a href="new-packages.html#cb23-16" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delta_Ct =</span> Ct_Value <span class="sc">-</span> housekeeping_ct[Sample])</span>
+<span id="cb23-17"><a href="new-packages.html#cb23-17" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="new-packages.html#cb23-18" tabindex="-1"></a><span class="co"># Calculate ΔΔCt and fold change</span></span>
+<span id="cb23-19"><a href="new-packages.html#cb23-19" tabindex="-1"></a>qpcr_data <span class="ot">&lt;-</span> qpcr_data <span class="sc">%&gt;%</span></span>
+<span id="cb23-20"><a href="new-packages.html#cb23-20" tabindex="-1"></a>  <span class="fu">group_by</span>(Target_Gene) <span class="sc">%&gt;%</span></span>
+<span id="cb23-21"><a href="new-packages.html#cb23-21" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delta_delta_Ct =</span> delta_Ct <span class="sc">-</span> <span class="fu">mean</span>(delta_Ct[Sample <span class="sc">==</span> <span class="st">&quot;Control&quot;</span>]),</span>
+<span id="cb23-22"><a href="new-packages.html#cb23-22" tabindex="-1"></a>         <span class="at">fold_change =</span> <span class="dv">2</span><span class="sc">^</span>(<span class="sc">-</span>delta_delta_Ct))</span>
+<span id="cb23-23"><a href="new-packages.html#cb23-23" tabindex="-1"></a></span>
+<span id="cb23-24"><a href="new-packages.html#cb23-24" tabindex="-1"></a><span class="co"># Visualize fold changes</span></span>
+<span id="cb23-25"><a href="new-packages.html#cb23-25" tabindex="-1"></a>fold_change_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(qpcr_data, <span class="fu">aes</span>(<span class="at">x =</span> Target_Gene, <span class="at">y =</span> fold_change, <span class="at">fill =</span> Sample)) <span class="sc">+</span></span>
+<span id="cb23-26"><a href="new-packages.html#cb23-26" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb23-27"><a href="new-packages.html#cb23-27" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Fold Change in Cytokine Expression&quot;</span>,</span>
+<span id="cb23-28"><a href="new-packages.html#cb23-28" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Cytokine&quot;</span>,</span>
+<span id="cb23-29"><a href="new-packages.html#cb23-29" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Fold Change&quot;</span>) <span class="sc">+</span></span>
+<span id="cb23-30"><a href="new-packages.html#cb23-30" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb23-31"><a href="new-packages.html#cb23-31" tabindex="-1"></a><span class="fu">print</span>(fold_change_plot)</span>
+<span id="cb23-32"><a href="new-packages.html#cb23-32" tabindex="-1"></a></span>
+<span id="cb23-33"><a href="new-packages.html#cb23-33" tabindex="-1"></a><span class="co"># Perform statistical testing to identify significant changes</span></span>
+<span id="cb23-34"><a href="new-packages.html#cb23-34" tabindex="-1"></a>stats <span class="ot">&lt;-</span> qpcr_data <span class="sc">%&gt;%</span></span>
+<span id="cb23-35"><a href="new-packages.html#cb23-35" tabindex="-1"></a>  <span class="fu">group_by</span>(Target_Gene) <span class="sc">%&gt;%</span></span>
+<span id="cb23-36"><a href="new-packages.html#cb23-36" tabindex="-1"></a>  <span class="fu">t_test</span>(fold_change <span class="sc">~</span> Sample, <span class="at">paired =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-37"><a href="new-packages.html#cb23-37" tabindex="-1"></a>  <span class="fu">adjust_pvalue</span>(<span class="at">method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span>
+<span id="cb23-38"><a href="new-packages.html#cb23-38" tabindex="-1"></a><span class="fu">print</span>(stats)</span></code></pre></div>
+<p>I’ve watched youtube videos:
+<a href="https://www.youtube.com/watch?v=Uj0uDpNgc7U" class="uri">https://www.youtube.com/watch?v=Uj0uDpNgc7U</a>
+<a href="https://www.youtube.com/watch?v=zl3T8b5DJPs" class="uri">https://www.youtube.com/watch?v=zl3T8b5DJPs</a></p>
+<p>But I still have not obtained my own data so I can not test it out yet.</p>
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Deepika, D., &amp; Kumar, V. (2023). The role of “Physiologically Based Pharmacokinetic Model (PBPK)” New Approach Methodology (NAM) in Pharmaceuticals and Environmental Chemical Risk assessment. International Journal of Environmental Research and Public Health, 20(4), 3473. <a href="https://doi.org/10.3390/ijerph20043473" class="uri">https://doi.org/10.3390/ijerph20043473</a><a href="new-packages.html#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
