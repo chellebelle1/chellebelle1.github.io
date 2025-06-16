@@ -1,0 +1,10 @@
+introduction
+cv
+guerilla-analytics
+reproducible-research
+reproducible-data
+animated-line-graph
+sql
+datetime-r-package
+projecticum-ner
+parameterized-covid-19-report
