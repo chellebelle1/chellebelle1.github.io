@@ -159,19 +159,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#scatterplot"><i class="fa fa-check"></i>Scatterplot</a></li>
 <li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#normalizing-the-data"><i class="fa fa-check"></i>Normalizing the data</a></li>
+<li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#future-research"><i class="fa fa-check"></i>Future Research</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#article"><i class="fa fa-check"></i>Article</a>
 <ul>
 <li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#summary"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#review"><i class="fa fa-check"></i>Review</a></li>
 </ul></li>
+<li class="chapter" data-level="4.1" data-path="reproducible-research.html"><a href="reproducible-research.html#reproducible-data"><i class="fa fa-check"></i><b>4.1</b> Reproducible data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html"><i class="fa fa-check"></i><span style="color:#E656AE;">New Packages</span></a>
 <ul>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#visualisation-microplate-assay"><i class="fa fa-check"></i>Visualisation microplate assay</a></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#plater"><i class="fa fa-check"></i>plater</a></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#gganimate"><i class="fa fa-check"></i>gganimate</a></li>
-<li class="chapter" data-level="4.1" data-path="new-packages.html"><a href="new-packages.html#animated-line-graph"><i class="fa fa-check"></i><b>4.1</b> <img src="animated_plot.gif" alt="Animated line graph" /></a></li>
+<li class="chapter" data-level="4.2" data-path="new-packages.html"><a href="new-packages.html#animated-line-graph"><i class="fa fa-check"></i><b>4.2</b> <img src="animated_plot.gif" alt="Animated line graph" /></a></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#qpcr"><i class="fa fa-check"></i>qPCR</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>5</b> <span style="color:#E656AE;">SQL</span></a></li>
@@ -300,6 +302,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ 349 more rows</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p><span style="color:#E656AE;font-weight:bold;">Figuur 4. Scatterplot of different compounds and varying concentrations normalized with the mean of the negative control</span></p>
+</div>
+<div id="future-research" class="section level3 unnumbered hasAnchor">
+<h3>Future Research<a href="reproducible-research.html#future-research" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To determine the effect of different chemicals on the <em>C. elegans</em> model and its offspring, a dosis response analysis would be the next step. This would allow to calculate the IC₅₀ value, which is the concentration at which a compound reduces the offspring by 50%. The <code>drc</code> package in R is commonly used for this purpose.</p>
+<p>We begin by grouping data per compound and visualizing how offspring numbers vary by concentration. Then we fit a dose-response model to estimate the concentration at which the response (offspring count) drops by half –&gt; the IC₅₀ value.</p>
+<ol style="list-style-type: decimal">
+<li>Installing the <code>drc</code> package</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="reproducible-research.html#cb16-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;drc&quot;</span>)</span>
+<span id="cb16-2"><a href="reproducible-research.html#cb16-2" tabindex="-1"></a><span class="fu">library</span>(drc)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Filter the dataset for a specific compound and experimental conditions</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="reproducible-research.html#cb17-1" tabindex="-1"></a>compound_data <span class="ot">&lt;-</span> CE_LIQ_FLOW_062_Tidydata <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="reproducible-research.html#cb17-2" tabindex="-1"></a>  <span class="fu">filter</span>(compName <span class="sc">==</span> <span class="st">&quot;2,6-diisopropylnaphthalene&quot;</span>, expType <span class="sc">==</span> <span class="st">&quot;experiment&quot;</span>)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Use a four-parameter log-logistic model
+(This model estimates the relationship between the compound concentration and the biological effect (in our case, the normalized number of offspring). It assumes that the response follows a sigmoidal (S-shaped) curve, which is typical in toxicology.)</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="reproducible-research.html#cb18-1" tabindex="-1"></a>celegans <span class="ot">&lt;-</span> <span class="fu">drm</span>(normalized <span class="sc">~</span> compConcentration,</span>
+<span id="cb18-2"><a href="reproducible-research.html#cb18-2" tabindex="-1"></a>             <span class="at">data =</span> compound_data,</span>
+<span id="cb18-3"><a href="reproducible-research.html#cb18-3" tabindex="-1"></a>             <span class="at">fct =</span> <span class="fu">LL.4</span>())</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Calculate the data and summarize</li>
+</ol>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="reproducible-research.html#cb19-1" tabindex="-1"></a><span class="fu">summary</span>(celegans)</span>
+<span id="cb19-2"><a href="reproducible-research.html#cb19-2" tabindex="-1"></a><span class="fu">ED</span>(celegans, <span class="dv">50</span>) </span></code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Plot the dosis response curve
+This visualizes the calculation of step 4.</li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="reproducible-research.html#cb20-1" tabindex="-1"></a><span class="fu">plot</span>(celegans, <span class="at">type =</span> <span class="st">&quot;all&quot;</span>,</span>
+<span id="cb20-2"><a href="reproducible-research.html#cb20-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Concentration (µM)&quot;</span>,</span>
+<span id="cb20-3"><a href="reproducible-research.html#cb20-3" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Normalized Offspring&quot;</span>,</span>
+<span id="cb20-4"><a href="reproducible-research.html#cb20-4" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Dose-Response Curve for 2,6-diisopropylnaphthalene&quot;</span>)</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -396,8 +433,29 @@ Higher temporal resolution of longitudinal mechanisms in COVID-19 revealed multi
 </tr>
 </tbody>
 </table>
-
 </div>
+</div>
+<div id="reproducible-data" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Reproducible data<a href="reproducible-research.html#reproducible-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In addition to reviewing scientific articles, the reproducibility of R code is also assessed in research papers. For this review, we examine the study by Kragness and Cirelli on infant behavior to evaluate various aspects, interactions, and emotional responses during a musical concert. The article used for this review is titled “A concert for babies: Attentional, affective, and motor responses in an infant audience.”</p>
+<p>After studying the R script, it appears to be an analytical study of associations between different behavioral aspects during music playback. It performs statistical analyses, such as correlation tests, and generates visualizations. On a scale from 1 (very bad) to 5 (very good), I would rate the script a 4 for readability. The code is generally clear, well-structured, and organized with comments. However, it would benefit from additional comments that offer more detailed explanations of the code’s functionality.</p>
+<p>While running the script, I encountered a few minor errors. For example, when loading the data, the path was missing in the <code>setwd()</code> function. This was corrected by directing it to the folder named <code>'les4'</code>.</p>
+<p>In the <strong>Demographics</strong> code chunk, the columns <code>Gender</code> and <code>BabyMusiClass</code> were not found as objects in the <code>df.wide</code> dataframe. I resolved the issue with <code>BabyMusiClass</code> by referencing it as <code>df.wide$BabyMusiClass</code>. The <code>Gender</code> column was stored as a <em>character</em> rather than a <em>factor</em>, which made counting values problematic. I adjusted this by using <code>table(df.wide$Gender)</code> to correctly display the gender counts in the console.</p>
+<p>On a scale from <strong>1 (very bad)</strong> to <strong>5 (very good)</strong>, I would rate the script a <strong>4</strong> for <strong>reproducibility</strong>. The required changes were minor and easily implemented, such as correcting file paths or referencing variables explicitly. The visualizations were provided as PNG files, and all necessary libraries were loaded at the beginning of the RMarkdown file.</p>
+<p>Below is an example of a code section used to generate a <code>geom_density</code> plot. This visualization gets a <strong>5</strong> for reproducibility.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="reproducible-research.html#cb21-1" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;attentionDensity.png&quot;</span>, <span class="at">units=</span><span class="st">&quot;in&quot;</span>, <span class="at">width=</span><span class="dv">5</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">res=</span><span class="dv">300</span>)</span>
+<span id="cb21-2"><a href="reproducible-research.html#cb21-2" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="reproducible-research.html#cb21-3" tabindex="-1"></a>dens.perc <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(BabyAttShow.Prop,<span class="at">fill =</span> SongCond, <span class="at">linetype=</span>IntCond),..scaled..) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>)<span class="sc">+</span><span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb21-4"><a href="reproducible-research.html#cb21-4" tabindex="-1"></a>    <span class="fu">scale_linetype_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;dashed&quot;</span>))<span class="sc">+</span></span>
+<span id="cb21-5"><a href="reproducible-research.html#cb21-5" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;plum4&quot;</span>,<span class="st">&quot;seagreen3&quot;</span>))<span class="sc">+</span></span>
+<span id="cb21-6"><a href="reproducible-research.html#cb21-6" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Proportion of epochs containing looks to show&quot;</span>)<span class="sc">+</span></span>
+<span id="cb21-7"><a href="reproducible-research.html#cb21-7" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Kernel density&quot;</span>)<span class="sc">+</span></span>
+<span id="cb21-8"><a href="reproducible-research.html#cb21-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb21-9"><a href="reproducible-research.html#cb21-9" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="reproducible-research.html#cb21-10" tabindex="-1"></a>dens.perc</span>
+<span id="cb21-11"><a href="reproducible-research.html#cb21-11" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<p><img src="photos/Schermafbeelding%202025-06-16%20004741.png" width="280" /></p>
+
 </div>
 </div>
             </section>

@@ -1,11 +1,8 @@
-fig:unnamed-chunk-20-1
-fig:unnamed-chunk-20-2
-fig:unnamed-chunk-21-1
-fig:unnamed-chunk-21-2
 introduction
 cv
 guerilla-analytics
 reproducible-research
+reproducible-data
 animated-line-graph
 sql
 datetime-r-package

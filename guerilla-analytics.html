@@ -159,19 +159,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#scatterplot"><i class="fa fa-check"></i>Scatterplot</a></li>
 <li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#normalizing-the-data"><i class="fa fa-check"></i>Normalizing the data</a></li>
+<li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#future-research"><i class="fa fa-check"></i>Future Research</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#article"><i class="fa fa-check"></i>Article</a>
 <ul>
 <li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#summary"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="" data-path="reproducible-research.html"><a href="reproducible-research.html#review"><i class="fa fa-check"></i>Review</a></li>
 </ul></li>
+<li class="chapter" data-level="4.1" data-path="reproducible-research.html"><a href="reproducible-research.html#reproducible-data"><i class="fa fa-check"></i><b>4.1</b> Reproducible data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html"><i class="fa fa-check"></i><span style="color:#E656AE;">New Packages</span></a>
 <ul>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#visualisation-microplate-assay"><i class="fa fa-check"></i>Visualisation microplate assay</a></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#plater"><i class="fa fa-check"></i>plater</a></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#gganimate"><i class="fa fa-check"></i>gganimate</a></li>
-<li class="chapter" data-level="4.1" data-path="new-packages.html"><a href="new-packages.html#animated-line-graph"><i class="fa fa-check"></i><b>4.1</b> <img src="animated_plot.gif" alt="Animated line graph" /></a></li>
+<li class="chapter" data-level="4.2" data-path="new-packages.html"><a href="new-packages.html#animated-line-graph"><i class="fa fa-check"></i><b>4.2</b> <img src="animated_plot.gif" alt="Animated line graph" /></a></li>
 <li class="chapter" data-level="" data-path="new-packages.html"><a href="new-packages.html#qpcr"><i class="fa fa-check"></i>qPCR</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>5</b> <span style="color:#E656AE;">SQL</span></a></li>
@@ -258,8 +260,10 @@ For the RNA-sequencing data this included the different types of methods that we
 ## ├── 07_DateTime.Rmd
 ## ├── 08_Project.Rmd
 ## ├── 09_COVID19.Rmd
+## ├── animated_plot.gif
 ## ├── bookdown.Rproj
 ## ├── data
+## │   ├── AConcertForBabies.csv
 ## │   ├── example-1.csv
 ## │   ├── extinctie.csv
 ## │   └── plate1.csv
@@ -287,10 +291,19 @@ For the RNA-sequencing data this included the different types of methods that we
 ## │   └── reactwidget-2.0.0
 ## ├── LICENSE
 ## ├── photos
+## │   ├── animated_plot.gif
+## │   ├── attentionDensity.png
 ## │   ├── example_plate_file.png
 ## │   ├── metagenomics_folder_tree.png
-## │   └── RNAseq_folder_tree.png
+## │   ├── RNAseq_folder_tree.png
+## │   ├── Schermafbeelding 2024-08-18 230338.png
+## │   ├── Schermafbeelding 2024-08-18 230429.png
+## │   ├── Schermafbeelding 2024-08-18 230509.png
+## │   └── Schermafbeelding 2025-06-16 004741.png
 ## ├── README.md
+## ├── Schermafbeelding 2024-08-18 230338.png
+## ├── Schermafbeelding 2024-08-18 230429.png
+## ├── Schermafbeelding 2024-08-18 230509.png
 ## ├── _book
 ## │   ├── %
 ## │   ├── 404.html
@@ -366,6 +379,11 @@ For the RNA-sequencing data this included the different types of methods that we
 ## │   ├── new-packages.html
 ## │   ├── open-peer-review.html
 ## │   ├── parameterized-covid-19-report.html
+## │   ├── photos
+## │   │   ├── example_plate_file.png
+## │   │   ├── metagenomics_folder_tree.png
+## │   │   ├── RNAseq_folder_tree.png
+## │   │   └── Schermafbeelding 2025-06-16 004741.png
 ## │   ├── portfolio.html
 ## │   ├── projecitum-ner.html
 ## │   ├── projecticum-ner.html
@@ -408,6 +426,12 @@ For the RNA-sequencing data this included the different types of methods that we
 ## │           ├── unnamed-chunk-2-2.png
 ## │           ├── unnamed-chunk-20-1.png
 ## │           ├── unnamed-chunk-20-2.png
+## │           ├── unnamed-chunk-21-1.png
+## │           ├── unnamed-chunk-21-2.png
+## │           ├── unnamed-chunk-25-1.png
+## │           ├── unnamed-chunk-25-2.png
+## │           ├── unnamed-chunk-27-1.png
+## │           ├── unnamed-chunk-28-1.png
 ## │           ├── unnamed-chunk-3-1.png
 ## │           ├── unnamed-chunk-3-2.png
 ## │           ├── unnamed-chunk-4-1.png
@@ -432,6 +456,7 @@ For the RNA-sequencing data this included the different types of methods that we
 ## │           ├── Vignettte-4.png
 ## │           ├── Vignettte-5.png
 ## │           └── Vignettte-6.png
+## ├── _bookdown_files
 ## ├── _main.Rmd
 ## └── _main_files
 ##     └── figure-html
@@ -456,11 +481,19 @@ For the RNA-sequencing data this included the different types of methods that we
 ##         ├── unnamed-chunk-2-2.png
 ##         ├── unnamed-chunk-20-1.png
 ##         ├── unnamed-chunk-20-2.png
+##         ├── unnamed-chunk-21-1.png
+##         ├── unnamed-chunk-21-2.png
+##         ├── unnamed-chunk-25-1.png
+##         ├── unnamed-chunk-25-2.png
+##         ├── unnamed-chunk-27-1.png
+##         ├── unnamed-chunk-28-1.png
 ##         ├── unnamed-chunk-3-1.png
 ##         ├── unnamed-chunk-3-2.png
 ##         ├── unnamed-chunk-4-1.png
 ##         ├── unnamed-chunk-4-2.png
+##         ├── unnamed-chunk-5-1.png
 ##         ├── unnamed-chunk-6-1.png
+##         ├── unnamed-chunk-7-1.png
 ##         ├── unnamed-chunk-8-1.png
 ##         ├── Vignette-1.png
 ##         ├── Vignette-2.png
