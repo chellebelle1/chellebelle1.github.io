@@ -232,71 +232,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="line-chart-the-netherlands-belgium-and-germany" class="section level2 unnumbered hasAnchor">
 <h2>Line chart the Netherlands, Belgium and Germany<a href="parameterized-covid-19-report.html#line-chart-the-netherlands-belgium-and-germany" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Using the ECDC COVID-19 data, there is a visual representation of COVID-19 cases and deaths in selected countries and years. The graphs display the number of cases and deaths per date. By utilizing parameterization in the R code with <code>params$</code>, this report can be easily tailored to specific interests without needing to modify the underlying code.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="parameterized-covid-19-report.html#cb62-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb62-2"><a href="parameterized-covid-19-report.html#cb62-2" tabindex="-1"></a></span>
-<span id="cb62-3"><a href="parameterized-covid-19-report.html#cb62-3" tabindex="-1"></a><span class="co"># parameters</span></span>
-<span id="cb62-4"><a href="parameterized-covid-19-report.html#cb62-4" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb62-5"><a href="parameterized-covid-19-report.html#cb62-5" tabindex="-1"></a>  <span class="at">selecteer_land =</span> <span class="fu">c</span>(<span class="st">&quot;Netherlands&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;Belgium&quot;</span>),</span>
-<span id="cb62-6"><a href="parameterized-covid-19-report.html#cb62-6" tabindex="-1"></a>  <span class="at">selecteer_jaar =</span> <span class="dv">2020</span></span>
-<span id="cb62-7"><a href="parameterized-covid-19-report.html#cb62-7" tabindex="-1"></a>)</span>
-<span id="cb62-8"><a href="parameterized-covid-19-report.html#cb62-8" tabindex="-1"></a></span>
-<span id="cb62-9"><a href="parameterized-covid-19-report.html#cb62-9" tabindex="-1"></a><span class="co"># Datum omzetten</span></span>
-<span id="cb62-10"><a href="parameterized-covid-19-report.html#cb62-10" tabindex="-1"></a>selecteer_data <span class="ot">&lt;-</span> covid_data <span class="sc">%&gt;%</span></span>
-<span id="cb62-11"><a href="parameterized-covid-19-report.html#cb62-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dateRep =</span> <span class="fu">as.Date</span>(dateRep, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb62-12"><a href="parameterized-covid-19-report.html#cb62-12" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb62-13"><a href="parameterized-covid-19-report.html#cb62-13" tabindex="-1"></a>    countriesAndTerritories <span class="sc">%in%</span> params<span class="sc">$</span>selecteer_land,</span>
-<span id="cb62-14"><a href="parameterized-covid-19-report.html#cb62-14" tabindex="-1"></a>    <span class="fu">format</span>(dateRep, <span class="st">&quot;%Y&quot;</span>) <span class="sc">==</span> <span class="fu">as.character</span>(params<span class="sc">$</span>selecteer_jaar)</span>
-<span id="cb62-15"><a href="parameterized-covid-19-report.html#cb62-15" tabindex="-1"></a>  )</span>
-<span id="cb62-16"><a href="parameterized-covid-19-report.html#cb62-16" tabindex="-1"></a></span>
-<span id="cb62-17"><a href="parameterized-covid-19-report.html#cb62-17" tabindex="-1"></a></span>
-<span id="cb62-18"><a href="parameterized-covid-19-report.html#cb62-18" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> selecteer_data <span class="sc">%&gt;%</span></span>
-<span id="cb62-19"><a href="parameterized-covid-19-report.html#cb62-19" tabindex="-1"></a>  <span class="fu">select</span>(dateRep, countriesAndTerritories, cases, deaths) <span class="sc">%&gt;%</span></span>
-<span id="cb62-20"><a href="parameterized-covid-19-report.html#cb62-20" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(cases, deaths), <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;aantal&quot;</span>)</span>
-<span id="cb62-21"><a href="parameterized-covid-19-report.html#cb62-21" tabindex="-1"></a></span>
-<span id="cb62-22"><a href="parameterized-covid-19-report.html#cb62-22" tabindex="-1"></a><span class="co"># Plot </span></span>
-<span id="cb62-23"><a href="parameterized-covid-19-report.html#cb62-23" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> dateRep, <span class="at">y =</span> aantal, <span class="at">color =</span> type)) <span class="sc">+</span></span>
-<span id="cb62-24"><a href="parameterized-covid-19-report.html#cb62-24" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb62-25"><a href="parameterized-covid-19-report.html#cb62-25" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>countriesAndTerritories) <span class="sc">+</span></span>
-<span id="cb62-26"><a href="parameterized-covid-19-report.html#cb62-26" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb62-27"><a href="parameterized-covid-19-report.html#cb62-27" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;COVID-19 cases and deaths in&quot;</span>, params<span class="sc">$</span>selecteer_jaar),</span>
-<span id="cb62-28"><a href="parameterized-covid-19-report.html#cb62-28" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Type&quot;</span></span>
-<span id="cb62-29"><a href="parameterized-covid-19-report.html#cb62-29" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb62-30"><a href="parameterized-covid-19-report.html#cb62-30" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 month&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%b %Y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb62-31"><a href="parameterized-covid-19-report.html#cb62-31" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="parameterized-covid-19-report.html#cb59-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb59-2"><a href="parameterized-covid-19-report.html#cb59-2" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="parameterized-covid-19-report.html#cb59-3" tabindex="-1"></a><span class="co"># parameters</span></span>
+<span id="cb59-4"><a href="parameterized-covid-19-report.html#cb59-4" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb59-5"><a href="parameterized-covid-19-report.html#cb59-5" tabindex="-1"></a>  <span class="at">selecteer_land =</span> <span class="fu">c</span>(<span class="st">&quot;Netherlands&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;Belgium&quot;</span>),</span>
+<span id="cb59-6"><a href="parameterized-covid-19-report.html#cb59-6" tabindex="-1"></a>  <span class="at">selecteer_jaar =</span> <span class="dv">2020</span></span>
+<span id="cb59-7"><a href="parameterized-covid-19-report.html#cb59-7" tabindex="-1"></a>)</span>
+<span id="cb59-8"><a href="parameterized-covid-19-report.html#cb59-8" tabindex="-1"></a></span>
+<span id="cb59-9"><a href="parameterized-covid-19-report.html#cb59-9" tabindex="-1"></a><span class="co"># Datum omzetten</span></span>
+<span id="cb59-10"><a href="parameterized-covid-19-report.html#cb59-10" tabindex="-1"></a>selecteer_data <span class="ot">&lt;-</span> covid_data <span class="sc">%&gt;%</span></span>
+<span id="cb59-11"><a href="parameterized-covid-19-report.html#cb59-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dateRep =</span> <span class="fu">as.Date</span>(dateRep, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb59-12"><a href="parameterized-covid-19-report.html#cb59-12" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb59-13"><a href="parameterized-covid-19-report.html#cb59-13" tabindex="-1"></a>    countriesAndTerritories <span class="sc">%in%</span> params<span class="sc">$</span>selecteer_land,</span>
+<span id="cb59-14"><a href="parameterized-covid-19-report.html#cb59-14" tabindex="-1"></a>    <span class="fu">format</span>(dateRep, <span class="st">&quot;%Y&quot;</span>) <span class="sc">==</span> <span class="fu">as.character</span>(params<span class="sc">$</span>selecteer_jaar)</span>
+<span id="cb59-15"><a href="parameterized-covid-19-report.html#cb59-15" tabindex="-1"></a>  )</span>
+<span id="cb59-16"><a href="parameterized-covid-19-report.html#cb59-16" tabindex="-1"></a></span>
+<span id="cb59-17"><a href="parameterized-covid-19-report.html#cb59-17" tabindex="-1"></a></span>
+<span id="cb59-18"><a href="parameterized-covid-19-report.html#cb59-18" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> selecteer_data <span class="sc">%&gt;%</span></span>
+<span id="cb59-19"><a href="parameterized-covid-19-report.html#cb59-19" tabindex="-1"></a>  <span class="fu">select</span>(dateRep, countriesAndTerritories, cases, deaths) <span class="sc">%&gt;%</span></span>
+<span id="cb59-20"><a href="parameterized-covid-19-report.html#cb59-20" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(cases, deaths), <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;aantal&quot;</span>)</span>
+<span id="cb59-21"><a href="parameterized-covid-19-report.html#cb59-21" tabindex="-1"></a></span>
+<span id="cb59-22"><a href="parameterized-covid-19-report.html#cb59-22" tabindex="-1"></a><span class="co"># Plot </span></span>
+<span id="cb59-23"><a href="parameterized-covid-19-report.html#cb59-23" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> dateRep, <span class="at">y =</span> aantal, <span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb59-24"><a href="parameterized-covid-19-report.html#cb59-24" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb59-25"><a href="parameterized-covid-19-report.html#cb59-25" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>countriesAndTerritories) <span class="sc">+</span></span>
+<span id="cb59-26"><a href="parameterized-covid-19-report.html#cb59-26" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb59-27"><a href="parameterized-covid-19-report.html#cb59-27" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;COVID-19 cases and deaths in&quot;</span>, params<span class="sc">$</span>selecteer_jaar),</span>
+<span id="cb59-28"><a href="parameterized-covid-19-report.html#cb59-28" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Type&quot;</span></span>
+<span id="cb59-29"><a href="parameterized-covid-19-report.html#cb59-29" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb59-30"><a href="parameterized-covid-19-report.html#cb59-30" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 month&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%b %Y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb59-31"><a href="parameterized-covid-19-report.html#cb59-31" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 </div>
 <div id="line-chart-romania-liechtenstein-and-italy" class="section level2 unnumbered hasAnchor">
 <h2>Line chart Romania, Liechtenstein and Italy<a href="parameterized-covid-19-report.html#line-chart-romania-liechtenstein-and-italy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To verify that the parameterization is working correctly, you can adjust the values in the parameter list. In this example, the countries Romania, Norway, and Italy are used, along with the year 2022</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="parameterized-covid-19-report.html#cb63-1" tabindex="-1"></a><span class="co"># Laad packages</span></span>
-<span id="cb63-2"><a href="parameterized-covid-19-report.html#cb63-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb63-3"><a href="parameterized-covid-19-report.html#cb63-3" tabindex="-1"></a></span>
-<span id="cb63-4"><a href="parameterized-covid-19-report.html#cb63-4" tabindex="-1"></a><span class="co"># parameters</span></span>
-<span id="cb63-5"><a href="parameterized-covid-19-report.html#cb63-5" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb63-6"><a href="parameterized-covid-19-report.html#cb63-6" tabindex="-1"></a>  <span class="at">selecteer_land =</span> <span class="fu">c</span>(<span class="st">&#39;Romania&#39;</span>, <span class="st">&#39;Liechtenstein&#39;</span>, <span class="st">&#39;Italy&#39;</span>),</span>
-<span id="cb63-7"><a href="parameterized-covid-19-report.html#cb63-7" tabindex="-1"></a>  <span class="at">selecteer_jaar =</span> <span class="dv">2022</span></span>
-<span id="cb63-8"><a href="parameterized-covid-19-report.html#cb63-8" tabindex="-1"></a>)</span>
-<span id="cb63-9"><a href="parameterized-covid-19-report.html#cb63-9" tabindex="-1"></a></span>
-<span id="cb63-10"><a href="parameterized-covid-19-report.html#cb63-10" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> covid_data <span class="sc">%&gt;%</span></span>
-<span id="cb63-11"><a href="parameterized-covid-19-report.html#cb63-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dateRep =</span> <span class="fu">as.Date</span>(dateRep, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb63-12"><a href="parameterized-covid-19-report.html#cb63-12" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb63-13"><a href="parameterized-covid-19-report.html#cb63-13" tabindex="-1"></a>    countriesAndTerritories <span class="sc">%in%</span> params<span class="sc">$</span>selecteer_land,</span>
-<span id="cb63-14"><a href="parameterized-covid-19-report.html#cb63-14" tabindex="-1"></a>    <span class="fu">format</span>(dateRep, <span class="st">&quot;%Y&quot;</span>) <span class="sc">==</span> <span class="fu">as.character</span>(params<span class="sc">$</span>selecteer_jaar)</span>
-<span id="cb63-15"><a href="parameterized-covid-19-report.html#cb63-15" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb63-16"><a href="parameterized-covid-19-report.html#cb63-16" tabindex="-1"></a>  <span class="fu">select</span>(dateRep, countriesAndTerritories, cases, deaths) <span class="sc">%&gt;%</span></span>
-<span id="cb63-17"><a href="parameterized-covid-19-report.html#cb63-17" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(cases, deaths), <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;aantal&quot;</span>)</span>
-<span id="cb63-18"><a href="parameterized-covid-19-report.html#cb63-18" tabindex="-1"></a></span>
-<span id="cb63-19"><a href="parameterized-covid-19-report.html#cb63-19" tabindex="-1"></a><span class="co"># Grafiek maken met cases en deaths </span></span>
-<span id="cb63-20"><a href="parameterized-covid-19-report.html#cb63-20" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> dateRep, <span class="at">y =</span> aantal, <span class="at">color =</span> countriesAndTerritories)) <span class="sc">+</span></span>
-<span id="cb63-21"><a href="parameterized-covid-19-report.html#cb63-21" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb63-22"><a href="parameterized-covid-19-report.html#cb63-22" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type, <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb63-23"><a href="parameterized-covid-19-report.html#cb63-23" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 month&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%b %Y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb63-24"><a href="parameterized-covid-19-report.html#cb63-24" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb63-25"><a href="parameterized-covid-19-report.html#cb63-25" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;COVID-19 cases and deaths in&quot;</span>, params<span class="sc">$</span>selecteer_jaar),</span>
-<span id="cb63-26"><a href="parameterized-covid-19-report.html#cb63-26" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Country&quot;</span></span>
-<span id="cb63-27"><a href="parameterized-covid-19-report.html#cb63-27" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb63-28"><a href="parameterized-covid-19-report.html#cb63-28" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb63-29"><a href="parameterized-covid-19-report.html#cb63-29" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="parameterized-covid-19-report.html#cb60-1" tabindex="-1"></a><span class="co"># Laad packages</span></span>
+<span id="cb60-2"><a href="parameterized-covid-19-report.html#cb60-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb60-3"><a href="parameterized-covid-19-report.html#cb60-3" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="parameterized-covid-19-report.html#cb60-4" tabindex="-1"></a><span class="co"># parameters</span></span>
+<span id="cb60-5"><a href="parameterized-covid-19-report.html#cb60-5" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb60-6"><a href="parameterized-covid-19-report.html#cb60-6" tabindex="-1"></a>  <span class="at">selecteer_land =</span> <span class="fu">c</span>(<span class="st">&#39;Romania&#39;</span>, <span class="st">&#39;Liechtenstein&#39;</span>, <span class="st">&#39;Italy&#39;</span>),</span>
+<span id="cb60-7"><a href="parameterized-covid-19-report.html#cb60-7" tabindex="-1"></a>  <span class="at">selecteer_jaar =</span> <span class="dv">2022</span></span>
+<span id="cb60-8"><a href="parameterized-covid-19-report.html#cb60-8" tabindex="-1"></a>)</span>
+<span id="cb60-9"><a href="parameterized-covid-19-report.html#cb60-9" tabindex="-1"></a></span>
+<span id="cb60-10"><a href="parameterized-covid-19-report.html#cb60-10" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> covid_data <span class="sc">%&gt;%</span></span>
+<span id="cb60-11"><a href="parameterized-covid-19-report.html#cb60-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dateRep =</span> <span class="fu">as.Date</span>(dateRep, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb60-12"><a href="parameterized-covid-19-report.html#cb60-12" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb60-13"><a href="parameterized-covid-19-report.html#cb60-13" tabindex="-1"></a>    countriesAndTerritories <span class="sc">%in%</span> params<span class="sc">$</span>selecteer_land,</span>
+<span id="cb60-14"><a href="parameterized-covid-19-report.html#cb60-14" tabindex="-1"></a>    <span class="fu">format</span>(dateRep, <span class="st">&quot;%Y&quot;</span>) <span class="sc">==</span> <span class="fu">as.character</span>(params<span class="sc">$</span>selecteer_jaar)</span>
+<span id="cb60-15"><a href="parameterized-covid-19-report.html#cb60-15" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb60-16"><a href="parameterized-covid-19-report.html#cb60-16" tabindex="-1"></a>  <span class="fu">select</span>(dateRep, countriesAndTerritories, cases, deaths) <span class="sc">%&gt;%</span></span>
+<span id="cb60-17"><a href="parameterized-covid-19-report.html#cb60-17" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(cases, deaths), <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;aantal&quot;</span>)</span>
+<span id="cb60-18"><a href="parameterized-covid-19-report.html#cb60-18" tabindex="-1"></a></span>
+<span id="cb60-19"><a href="parameterized-covid-19-report.html#cb60-19" tabindex="-1"></a><span class="co"># Grafiek maken met cases en deaths </span></span>
+<span id="cb60-20"><a href="parameterized-covid-19-report.html#cb60-20" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> dateRep, <span class="at">y =</span> aantal, <span class="at">color =</span> countriesAndTerritories)) <span class="sc">+</span></span>
+<span id="cb60-21"><a href="parameterized-covid-19-report.html#cb60-21" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb60-22"><a href="parameterized-covid-19-report.html#cb60-22" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type, <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb60-23"><a href="parameterized-covid-19-report.html#cb60-23" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 month&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%b %Y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb60-24"><a href="parameterized-covid-19-report.html#cb60-24" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb60-25"><a href="parameterized-covid-19-report.html#cb60-25" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;COVID-19 cases and deaths in&quot;</span>, params<span class="sc">$</span>selecteer_jaar),</span>
+<span id="cb60-26"><a href="parameterized-covid-19-report.html#cb60-26" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Country&quot;</span></span>
+<span id="cb60-27"><a href="parameterized-covid-19-report.html#cb60-27" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb60-28"><a href="parameterized-covid-19-report.html#cb60-28" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb60-29"><a href="parameterized-covid-19-report.html#cb60-29" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 
 </div>

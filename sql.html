@@ -271,27 +271,21 @@ After loading the data, they are tidied using <code>pivot_longer()</code> to tra
 <span id="cb33-18"><a href="sql.html#cb33-18" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;gapminder&quot;</span>, gapminder_data)</span>
 <span id="cb33-19"><a href="sql.html#cb33-19" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;flu&quot;</span>, flu_tidy)</span>
 <span id="cb33-20"><a href="sql.html#cb33-20" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;dengue&quot;</span>, dengue_tidy)</span></code></pre></div>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="sql.html#cb34-1" tabindex="-1"></a><span class="co"># Inspect contents of the tables</span></span>
-<span id="cb34-2"><a href="sql.html#cb34-2" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">rache</span><span class="sc">\\</span><span class="st">OneDrive</span><span class="sc">\\</span><span class="st">Documenten</span><span class="sc">\\</span><span class="st">Schermafbeelding 2024-08-18 230338.png&quot;</span>)</span></code></pre></div>
-<p><img src="../Schermafbeelding 2024-08-18 230338.png" width="522" /></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="sql.html#cb35-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">rache</span><span class="sc">\\</span><span class="st">OneDrive</span><span class="sc">\\</span><span class="st">Documenten</span><span class="sc">\\</span><span class="st">Schermafbeelding 2024-08-18 230429.png&quot;</span>)</span></code></pre></div>
-<p><img src="../Schermafbeelding 2024-08-18 230429.png" width="478" /></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="sql.html#cb36-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">rache</span><span class="sc">\\</span><span class="st">OneDrive</span><span class="sc">\\</span><span class="st">Documenten</span><span class="sc">\\</span><span class="st">Schermafbeelding 2024-08-18 230509.png&quot;</span>)</span></code></pre></div>
-<p><img src="../Schermafbeelding 2024-08-18 230509.png" width="581" /></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="sql.html#cb37-1" tabindex="-1"></a><span class="co"># Join the tables together</span></span>
-<span id="cb37-2"><a href="sql.html#cb37-2" tabindex="-1"></a>flu_tidy <span class="ot">&lt;-</span> flu_tidy <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.character</span>(year))</span>
-<span id="cb37-3"><a href="sql.html#cb37-3" tabindex="-1"></a>dengue_tidy <span class="ot">&lt;-</span> dengue_tidy <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.character</span>(year))</span>
-<span id="cb37-4"><a href="sql.html#cb37-4" tabindex="-1"></a></span>
-<span id="cb37-5"><a href="sql.html#cb37-5" tabindex="-1"></a>flu_dengue <span class="ot">&lt;-</span> <span class="fu">full_join</span>(flu_tidy, dengue_tidy, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_flu&quot;</span>, <span class="st">&quot;_dengue&quot;</span>))</span>
-<span id="cb37-6"><a href="sql.html#cb37-6" tabindex="-1"></a></span>
-<span id="cb37-7"><a href="sql.html#cb37-7" tabindex="-1"></a><span class="co"># Rename &#39;year&#39; to &#39;Year&#39; in flu_dengue for consistency with gapminder_data</span></span>
-<span id="cb37-8"><a href="sql.html#cb37-8" tabindex="-1"></a>flu_dengue <span class="ot">&lt;-</span> flu_dengue <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Year =</span> year)</span>
-<span id="cb37-9"><a href="sql.html#cb37-9" tabindex="-1"></a></span>
-<span id="cb37-10"><a href="sql.html#cb37-10" tabindex="-1"></a><span class="co"># Join with gapminder</span></span>
-<span id="cb37-11"><a href="sql.html#cb37-11" tabindex="-1"></a>flu_dengue_gapminder <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flu_dengue, gapminder_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Year&quot;</span>))</span>
-<span id="cb37-12"><a href="sql.html#cb37-12" tabindex="-1"></a></span>
-<span id="cb37-13"><a href="sql.html#cb37-13" tabindex="-1"></a><span class="co"># Check the resulting dataframe</span></span>
-<span id="cb37-14"><a href="sql.html#cb37-14" tabindex="-1"></a><span class="fu">print</span>(flu_dengue_gapminder)</span></code></pre></div>
+<p><img src="Schermafbeelding%202024-08-18%20230338.png" width="522" /><img src="Schermafbeelding%202024-08-18%20230429.png" width="478" /><img src="Schermafbeelding%202024-08-18%20230509.png" width="581" /></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="sql.html#cb34-1" tabindex="-1"></a><span class="co"># Join the tables together</span></span>
+<span id="cb34-2"><a href="sql.html#cb34-2" tabindex="-1"></a>flu_tidy <span class="ot">&lt;-</span> flu_tidy <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.character</span>(year))</span>
+<span id="cb34-3"><a href="sql.html#cb34-3" tabindex="-1"></a>dengue_tidy <span class="ot">&lt;-</span> dengue_tidy <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.character</span>(year))</span>
+<span id="cb34-4"><a href="sql.html#cb34-4" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="sql.html#cb34-5" tabindex="-1"></a>flu_dengue <span class="ot">&lt;-</span> <span class="fu">full_join</span>(flu_tidy, dengue_tidy, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_flu&quot;</span>, <span class="st">&quot;_dengue&quot;</span>))</span>
+<span id="cb34-6"><a href="sql.html#cb34-6" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="sql.html#cb34-7" tabindex="-1"></a><span class="co"># Rename &#39;year&#39; to &#39;Year&#39; in flu_dengue for consistency with gapminder_data</span></span>
+<span id="cb34-8"><a href="sql.html#cb34-8" tabindex="-1"></a>flu_dengue <span class="ot">&lt;-</span> flu_dengue <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Year =</span> year)</span>
+<span id="cb34-9"><a href="sql.html#cb34-9" tabindex="-1"></a></span>
+<span id="cb34-10"><a href="sql.html#cb34-10" tabindex="-1"></a><span class="co"># Join with gapminder</span></span>
+<span id="cb34-11"><a href="sql.html#cb34-11" tabindex="-1"></a>flu_dengue_gapminder <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flu_dengue, gapminder_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Year&quot;</span>))</span>
+<span id="cb34-12"><a href="sql.html#cb34-12" tabindex="-1"></a></span>
+<span id="cb34-13"><a href="sql.html#cb34-13" tabindex="-1"></a><span class="co"># Check the resulting dataframe</span></span>
+<span id="cb34-14"><a href="sql.html#cb34-14" tabindex="-1"></a><span class="fu">print</span>(flu_dengue_gapminder)</span></code></pre></div>
 <pre><code>## # A tibble: 155,161 × 11
 ##    Country   Value_flu Year  Value_dengue infant_mortality life_expectancy
 ##    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -308,27 +302,27 @@ After loading the data, they are tidied using <code>pivot_longer()</code> to tra
 ## # ℹ 155,151 more rows
 ## # ℹ 5 more variables: fertility &lt;dbl&gt;, population &lt;dbl&gt;, gdp &lt;dbl&gt;,
 ## #   continent &lt;fct&gt;, region &lt;fct&gt;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="sql.html#cb39-1" tabindex="-1"></a><span class="co"># Boxplot dengue cases per year in Brazil</span></span>
-<span id="cb39-2"><a href="sql.html#cb39-2" tabindex="-1"></a>dengue_Brazil <span class="ot">&lt;-</span> flu_dengue_gapminder <span class="sc">%&gt;%</span> <span class="fu">select</span>(Year, Country, Value_dengue) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Country <span class="sc">==</span> <span class="st">&quot;Brazil&quot;</span>, <span class="sc">!</span><span class="fu">is.na</span>(Value_dengue))</span>
-<span id="cb39-3"><a href="sql.html#cb39-3" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="sql.html#cb39-4" tabindex="-1"></a>dengue_sum <span class="ot">&lt;-</span> dengue_Brazil <span class="sc">%&gt;%</span></span>
-<span id="cb39-5"><a href="sql.html#cb39-5" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Value_dengue, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">stedv =</span> <span class="fu">sd</span>(Value_dengue, <span class="at">na.rm=</span> <span class="cn">TRUE</span>))</span>
-<span id="cb39-6"><a href="sql.html#cb39-6" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="sql.html#cb39-7" tabindex="-1"></a><span class="fu">ggplot</span>(dengue_sum, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Year), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
-<span id="cb39-8"><a href="sql.html#cb39-8" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;pink&quot;</span>) <span class="sc">+</span></span>
-<span id="cb39-9"><a href="sql.html#cb39-9" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Dengue Cases in Brazil (Per Year)&quot;</span>,</span>
-<span id="cb39-10"><a href="sql.html#cb39-10" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
-<span id="cb39-11"><a href="sql.html#cb39-11" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Average Number of Cases&quot;</span>) <span class="sc">+</span></span>
-<span id="cb39-12"><a href="sql.html#cb39-12" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="sql.html#cb36-1" tabindex="-1"></a><span class="co"># Boxplot dengue cases per year in Brazil</span></span>
+<span id="cb36-2"><a href="sql.html#cb36-2" tabindex="-1"></a>dengue_Brazil <span class="ot">&lt;-</span> flu_dengue_gapminder <span class="sc">%&gt;%</span> <span class="fu">select</span>(Year, Country, Value_dengue) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Country <span class="sc">==</span> <span class="st">&quot;Brazil&quot;</span>, <span class="sc">!</span><span class="fu">is.na</span>(Value_dengue))</span>
+<span id="cb36-3"><a href="sql.html#cb36-3" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="sql.html#cb36-4" tabindex="-1"></a>dengue_sum <span class="ot">&lt;-</span> dengue_Brazil <span class="sc">%&gt;%</span></span>
+<span id="cb36-5"><a href="sql.html#cb36-5" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Value_dengue, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">stedv =</span> <span class="fu">sd</span>(Value_dengue, <span class="at">na.rm=</span> <span class="cn">TRUE</span>))</span>
+<span id="cb36-6"><a href="sql.html#cb36-6" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="sql.html#cb36-7" tabindex="-1"></a><span class="fu">ggplot</span>(dengue_sum, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Year), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
+<span id="cb36-8"><a href="sql.html#cb36-8" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;pink&quot;</span>) <span class="sc">+</span></span>
+<span id="cb36-9"><a href="sql.html#cb36-9" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Dengue Cases in Brazil (Per Year)&quot;</span>,</span>
+<span id="cb36-10"><a href="sql.html#cb36-10" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
+<span id="cb36-11"><a href="sql.html#cb36-11" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Average Number of Cases&quot;</span>) <span class="sc">+</span></span>
+<span id="cb36-12"><a href="sql.html#cb36-12" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="sql.html#cb40-1" tabindex="-1"></a><span class="co"># Barchart of dengue cases per year</span></span>
-<span id="cb40-2"><a href="sql.html#cb40-2" tabindex="-1"></a>denguebar_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dengue_sum, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Year), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
-<span id="cb40-3"><a href="sql.html#cb40-3" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;lightpink&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
-<span id="cb40-4"><a href="sql.html#cb40-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Dengue cases Brazil (in years)&quot;</span>,</span>
-<span id="cb40-5"><a href="sql.html#cb40-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
-<span id="cb40-6"><a href="sql.html#cb40-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Average cases of dengue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb40-7"><a href="sql.html#cb40-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb40-8"><a href="sql.html#cb40-8" tabindex="-1"></a>denguebar_plot</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="sql.html#cb37-1" tabindex="-1"></a><span class="co"># Barchart of dengue cases per year</span></span>
+<span id="cb37-2"><a href="sql.html#cb37-2" tabindex="-1"></a>denguebar_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dengue_sum, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Year), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
+<span id="cb37-3"><a href="sql.html#cb37-3" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;lightpink&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="sql.html#cb37-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Dengue cases Brazil (in years)&quot;</span>,</span>
+<span id="cb37-5"><a href="sql.html#cb37-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
+<span id="cb37-6"><a href="sql.html#cb37-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Average cases of dengue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb37-7"><a href="sql.html#cb37-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb37-8"><a href="sql.html#cb37-8" tabindex="-1"></a>denguebar_plot</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-25-2.png" width="672" /></p>
 
 </div>
